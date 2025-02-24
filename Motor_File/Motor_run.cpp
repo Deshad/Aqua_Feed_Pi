@@ -1,44 +1,61 @@
-#include <wiringPi.h>
+#include <gpiod.h>
 #include <iostream>
-using namespace std;
+#include <chrono>
+#include <thread>
 
-const int Motor_Pin = 4; // Choose the appropriate pin for PWM
+#define GPIO_CHIP "/dev/gpiochip0"  // Default GPIO chip on Raspberry Pi
+#define MOTOR_PIN 4                // GPIO pin number (not BCM)
 
-int main(int argc, char *argv[]) {
-    // Initialize WiringPi
-    if (wiringPiSetup() == -1) {
-        cout << "WiringPi setup failed!" << endl;
+// Function to generate software PWM
+void software_pwm(gpiod_line *line, int duty_cycle, int period_ms, int duration_ms) {
+    auto start_time = std::chrono::steady_clock::now();
+    
+    while (std::chrono::steady_clock::now() - start_time < std::chrono::milliseconds(duration_ms)) {
+        // Turn ON the motor (HIGH)
+        gpiod_line_set_value(line, 1);
+        std::this_thread::sleep_for(std::chrono::milliseconds(duty_cycle * period_ms / 100));
+
+        // Turn OFF the motor (LOW)
+        gpiod_line_set_value(line, 0);
+        std::this_thread::sleep_for(std::chrono::milliseconds((100 - duty_cycle) * period_ms / 100));
+    }
+}
+
+int main() {
+    gpiod_chip *chip = gpiod_chip_open(GPIO_CHIP);
+    if (!chip) {
+        std::cerr << "Failed to open GPIO chip!" << std::endl;
         return -1;
     }
 
-    // Set the pin mode to PWM
-    pinMode(Motor_Pin, PWM_OUTPUT);
-
-    // Set the PWM range to 255 (0-255 range)
-    pwmSetRange(255);
-    pwmSetClock(192);  // Optional: Control the PWM frequency (depends on your needs)
-
-    cout << "Motor is connected and will be running!!! " << Motor_Pin << endl;
-
-    while (true) {
-        // Change the PWM duty cycle, for example, setting it to 50% (128 out of 255)
-        //pwmWrite(Motor_Pin, 128);  // Set motor speed to 50% duty cycle
-        //cout << "Motor Pin PWM Value: 128 (50% duty cycle)" << endl;
-
-        //delay(1000);  // Wait for 1 second
-
-        // Set the motor to maximum speed
-        pwmWrite(Motor_Pin, 255);  // Set to 100% duty cycle (maximum speed)
-        cout << "Motor Pin PWM Value: 255 (100% duty cycle)" << endl;
-
-        delay(1000);  // Wait for 1 second
-
-        // Set the motor to minimum speed (off)
-        pwmWrite(Motor_Pin, 0);  // Set to 0% duty cycle (motor off)
-        cout << "Motor Pin PWM Value: 0 (0% duty cycle, motor off)" << endl;
-
-        delay(1000);  // Wait for 1 second
+    gpiod_line *line = gpiod_chip_get_line(chip, MOTOR_PIN);
+    if (!line) {
+        std::cerr << "Failed to get GPIO line!" << std::endl;
+        gpiod_chip_close(chip);
+        return -1;
     }
 
+    if (gpiod_line_request_output(line, "motor_control", 0) < 0) {
+        std::cerr << "Failed to request GPIO line as output!" << std::endl;
+        gpiod_chip_close(chip);
+        return -1;
+    }
+
+    std::cout << "Motor is running with software PWM!" << std::endl;
+
+    while (true) {
+        std::cout << "Setting PWM to 100% duty cycle (Full speed)" << std::endl;
+        software_pwm(line, 100, 10, 2000);  // Full speed for 2 seconds
+
+        std::cout << "Setting PWM to 50% duty cycle" << std::endl;
+        software_pwm(line, 50, 10, 2000);   // 50% duty cycle for 2 seconds
+
+        std::cout << "Motor OFF" << std::endl;
+        software_pwm(line, 0, 10, 2000);    // Off for 2 seconds
+    }
+
+    gpiod_line_release(line);
+    gpiod_chip_close(chip);
     return 0;
 }
+

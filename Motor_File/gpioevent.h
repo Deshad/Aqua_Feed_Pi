@@ -23,6 +23,7 @@
 #define DEBUG
 #endif
 
+#define GPIO_CHIP "/dev/gpiochip0"  // Default GPIO chip on Raspberry Pi
 #define ISR_TIMEOUT 1 // sec
 
 class GPIOPin {

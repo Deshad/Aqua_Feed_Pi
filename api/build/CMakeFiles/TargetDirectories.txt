@@ -1,0 +1,7 @@
+/home/team35/motor_control_project/api/build/CMakeFiles/motor_api.dir
+/home/team35/motor_control_project/api/build/CMakeFiles/edit_cache.dir
+/home/team35/motor_control_project/api/build/CMakeFiles/rebuild_cache.dir
+/home/team35/motor_control_project/api/build/CMakeFiles/list_install_components.dir
+/home/team35/motor_control_project/api/build/CMakeFiles/install.dir
+/home/team35/motor_control_project/api/build/CMakeFiles/install/local.dir
+/home/team35/motor_control_project/api/build/CMakeFiles/install/strip.dir

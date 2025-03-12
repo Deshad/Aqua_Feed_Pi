@@ -15,3 +15,6 @@ Aqua Matic leverages C++ for hardware integration and backend development, makin
 
 The setup components include sensors for monitoring oxygen and pH levels, a Raspberry Pi for data processing and system management, and actuators for the automatic fish feeding mechanism. The system follows a structured flow, beginning with receiving feeding requests from users or detecting hunger through sensor data. This data is then processed by the FishFeederSystem, which executes feeding operations and logs information through the SensorDataLogger.  
 
+References:
+https://forum.opencv.org/t/simple-motion-detection-with-complex-background-for-fish-detection/13090/6
+

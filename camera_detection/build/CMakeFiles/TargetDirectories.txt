@@ -1,0 +1,3 @@
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/camera_detector.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/edit_cache.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/rebuild_cache.dir

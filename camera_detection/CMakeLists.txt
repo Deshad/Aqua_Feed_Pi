@@ -12,3 +12,13 @@ add_executable(camera_detector src/main.cpp)
 
 # Link libraries
 target_link_libraries(camera_detector ${OpenCV_LIBS})
+
+# Find libgpiod
+find_library(GPIOD_LIBRARY gpiod REQUIRED)
+
+# Link against the libraries
+target_link_libraries(camera_detector 
+    ${OpenCV_LIBS}
+    ${GPIOD_LIBRARY}
+    pthread
+)

@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles /home/team35/Aqua_Feed_Pi/camera_detection/build//CMakeFiles/progress.marks
@@ -117,24 +162,120 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named camera_detector
+# Target rules for targets named fish_monitor
 
 # Build rule for target.
-camera_detector: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 camera_detector
-.PHONY : camera_detector
+fish_monitor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 fish_monitor
+.PHONY : fish_monitor
 
 # fast build rule for target.
-camera_detector/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_detector.dir/build.make CMakeFiles/camera_detector.dir/build
-.PHONY : camera_detector/fast
+fish_monitor/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/build
+.PHONY : fish_monitor/fast
+
+src/camera.o: src/camera.cpp.o
+.PHONY : src/camera.o
+
+# target to build an object file
+src/camera.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/camera.cpp.o
+.PHONY : src/camera.cpp.o
+
+src/camera.i: src/camera.cpp.i
+.PHONY : src/camera.i
+
+# target to preprocess a source file
+src/camera.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/camera.cpp.i
+.PHONY : src/camera.cpp.i
+
+src/camera.s: src/camera.cpp.s
+.PHONY : src/camera.s
+
+# target to generate assembly for a file
+src/camera.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/camera.cpp.s
+.PHONY : src/camera.cpp.s
+
+src/feeder.o: src/feeder.cpp.o
+.PHONY : src/feeder.o
+
+# target to build an object file
+src/feeder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/feeder.cpp.o
+.PHONY : src/feeder.cpp.o
+
+src/feeder.i: src/feeder.cpp.i
+.PHONY : src/feeder.i
+
+# target to preprocess a source file
+src/feeder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/feeder.cpp.i
+.PHONY : src/feeder.cpp.i
+
+src/feeder.s: src/feeder.cpp.s
+.PHONY : src/feeder.s
+
+# target to generate assembly for a file
+src/feeder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/feeder.cpp.s
+.PHONY : src/feeder.cpp.s
+
+src/fish_monitoring_system.o: src/fish_monitoring_system.cpp.o
+.PHONY : src/fish_monitoring_system.o
+
+# target to build an object file
+src/fish_monitoring_system.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o
+.PHONY : src/fish_monitoring_system.cpp.o
+
+src/fish_monitoring_system.i: src/fish_monitoring_system.cpp.i
+.PHONY : src/fish_monitoring_system.i
+
+# target to preprocess a source file
+src/fish_monitoring_system.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.i
+.PHONY : src/fish_monitoring_system.cpp.i
+
+src/fish_monitoring_system.s: src/fish_monitoring_system.cpp.s
+.PHONY : src/fish_monitoring_system.s
+
+# target to generate assembly for a file
+src/fish_monitoring_system.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.s
+.PHONY : src/fish_monitoring_system.cpp.s
+
+src/image_processor.o: src/image_processor.cpp.o
+.PHONY : src/image_processor.o
+
+# target to build an object file
+src/image_processor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o
+.PHONY : src/image_processor.cpp.o
+
+src/image_processor.i: src/image_processor.cpp.i
+.PHONY : src/image_processor.i
+
+# target to preprocess a source file
+src/image_processor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/image_processor.cpp.i
+.PHONY : src/image_processor.cpp.i
+
+src/image_processor.s: src/image_processor.cpp.s
+.PHONY : src/image_processor.s
+
+# target to generate assembly for a file
+src/image_processor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s
+.PHONY : src/image_processor.cpp.s
 
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_detector.dir/build.make CMakeFiles/camera_detector.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -142,7 +283,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_detector.dir/build.make CMakeFiles/camera_detector.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -150,8 +291,32 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/camera_detector.dir/build.make CMakeFiles/camera_detector.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/pir_sensor.o: src/pir_sensor.cpp.o
+.PHONY : src/pir_sensor.o
+
+# target to build an object file
+src/pir_sensor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o
+.PHONY : src/pir_sensor.cpp.o
+
+src/pir_sensor.i: src/pir_sensor.cpp.i
+.PHONY : src/pir_sensor.i
+
+# target to preprocess a source file
+src/pir_sensor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.i
+.PHONY : src/pir_sensor.cpp.i
+
+src/pir_sensor.s: src/pir_sensor.cpp.s
+.PHONY : src/pir_sensor.s
+
+# target to generate assembly for a file
+src/pir_sensor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.s
+.PHONY : src/pir_sensor.cpp.s
 
 # Help Target
 help:
@@ -160,11 +325,30 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
-	@echo "... camera_detector"
+	@echo "... fish_monitor"
+	@echo "... src/camera.o"
+	@echo "... src/camera.i"
+	@echo "... src/camera.s"
+	@echo "... src/feeder.o"
+	@echo "... src/feeder.i"
+	@echo "... src/feeder.s"
+	@echo "... src/fish_monitoring_system.o"
+	@echo "... src/fish_monitoring_system.i"
+	@echo "... src/fish_monitoring_system.s"
+	@echo "... src/image_processor.o"
+	@echo "... src/image_processor.i"
+	@echo "... src/image_processor.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/pir_sensor.o"
+	@echo "... src/pir_sensor.i"
+	@echo "... src/pir_sensor.s"
 .PHONY : help
 
 

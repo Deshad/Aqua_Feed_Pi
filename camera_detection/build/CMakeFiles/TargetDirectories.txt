@@ -1,3 +1,7 @@
-/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/camera_detector.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/fish_monitor.dir
 /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/edit_cache.dir
 /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/rebuild_cache.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/list_install_components.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/install.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/install/local.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/install/strip.dir

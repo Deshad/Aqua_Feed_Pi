@@ -19,7 +19,9 @@ public:
         virtual void imageReady(const cv::Mat& image) = 0;
     };
     
-    Camera(const std::string& outputPath = "fish_detection.jpg");
+    Camera(const std::string& outputPath = "fish_detection.jpg,
+           int width = 640, 
+           int height = 480");
     ~Camera();
     
     // Start camera thread

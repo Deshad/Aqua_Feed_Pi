@@ -13,7 +13,7 @@ FishMonitoringSystem::FishMonitoringSystem() {
     m_pirSensor = std::make_unique<PirSensor>();  
     
     std::cout << "Initializing camera module..." << std::endl;
-    m_camera = std::make_unique<Camera>("fish_detection.jpg");
+    m_camera = std::make_unique<Camera>("fish_detection.jpg",640,480);
     
     std::cout << "Initializing image processor..." << std::endl;
     m_imageProcessor = std::make_unique<ImageProcessor>();

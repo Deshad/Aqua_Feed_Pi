@@ -67,7 +67,7 @@ void Camera::worker() {
         command << "libcamera-still "
                 << "--immediate " // Capture immediately without settling time
                 << "--nopreview " // Disable preview window
-                << "-w " << m_width << " -h " << m_height << " " // Lower resolution 
+                << "--width " << m_width << " --height " << m_height << " " // Lower resolution 
                 << "--quality 85 " // Slightly reduced quality for faster processing
                 << "-o " << m_outputPath;
         

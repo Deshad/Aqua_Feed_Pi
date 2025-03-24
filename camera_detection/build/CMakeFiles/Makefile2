@@ -64,6 +64,7 @@ CMAKE_BINARY_DIR = /home/team35/Aqua_Feed_Pi/camera_detection/build
 
 # The main recursive "all" target.
 all: CMakeFiles/fish_monitor.dir/all
+all: CMakeFiles/motor_test_program.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -72,6 +73,7 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/fish_monitor.dir/clean
+clean: CMakeFiles/motor_test_program.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -81,12 +83,12 @@ clean: CMakeFiles/fish_monitor.dir/clean
 CMakeFiles/fish_monitor.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target fish_monitor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target fish_monitor"
 .PHONY : CMakeFiles/fish_monitor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/fish_monitor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 7
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fish_monitor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 0
 .PHONY : CMakeFiles/fish_monitor.dir/rule
@@ -99,6 +101,32 @@ fish_monitor: CMakeFiles/fish_monitor.dir/rule
 CMakeFiles/fish_monitor.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/clean
 .PHONY : CMakeFiles/fish_monitor.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/motor_test_program.dir
+
+# All Build rule for target.
+CMakeFiles/motor_test_program.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=9,10,11 "Built target motor_test_program"
+.PHONY : CMakeFiles/motor_test_program.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/motor_test_program.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/motor_test_program.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 0
+.PHONY : CMakeFiles/motor_test_program.dir/rule
+
+# Convenience name for target.
+motor_test_program: CMakeFiles/motor_test_program.dir/rule
+.PHONY : motor_test_program
+
+# clean rule for target.
+CMakeFiles/motor_test_program.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/clean
+.PHONY : CMakeFiles/motor_test_program.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

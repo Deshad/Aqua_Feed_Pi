@@ -2131,13 +2131,7 @@ CMakeFiles/fish_monitor.dir/src/main.cpp.o: /home/team35/Aqua_Feed_Pi/camera_det
   /home/team35/Aqua_Feed_Pi/camera_detection/include/image_processor.h \
   /home/team35/Aqua_Feed_Pi/camera_detection/include/pir_sensor.h \
   /usr/include/gpiod.h \
-  /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h \
-  /usr/include/c++/12/filesystem \
-  /usr/include/c++/12/bits/fs_fwd.h \
-  /usr/include/c++/12/bits/fs_path.h \
-  /usr/include/c++/12/codecvt \
-  /usr/include/c++/12/bits/fs_dir.h \
-  /usr/include/c++/12/bits/fs_ops.h
+  /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h
 
 CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/pir_sensor.cpp \
   /usr/include/stdc-predef.h \

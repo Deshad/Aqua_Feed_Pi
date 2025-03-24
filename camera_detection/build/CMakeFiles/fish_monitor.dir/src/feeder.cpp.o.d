@@ -352,6 +352,8 @@ CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /usr/include/c++/12/thread /usr/include/c++/12/bits/std_thread.h \
  /usr/include/c++/12/bits/this_thread_sleep.h \
+ /home/team35/Aqua_Feed_Pi/camera_detection/include/motor.h \
+ /usr/include/gpiod.h /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h \
  /usr/include/c++/12/filesystem /usr/include/c++/12/bits/fs_fwd.h \
  /usr/include/c++/12/bits/fs_path.h /usr/include/c++/12/codecvt \
  /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h

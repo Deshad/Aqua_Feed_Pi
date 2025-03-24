@@ -19,7 +19,9 @@ public:
         virtual void imageReady(const cv::Mat& image) = 0;
     };
     
-    Camera(const std::string& outputPath = "fish_detection.jpg");
+    Camera(const std::string& outputPath = "fish_detection.jpg",
+           int width = 640, 
+           int height = 480);
     ~Camera();
     
     // Start camera thread
@@ -39,6 +41,8 @@ private:
     void worker();
     
     std::string m_outputPath;
+    int m_width;
+    int m_height;
     std::atomic<bool> m_running;
     std::atomic<bool> m_captureRequested{false};
     std::thread m_thread;

@@ -5,7 +5,15 @@
 
 namespace fs = std::filesystem;
 
-Feeder::Feeder() {}
+Feeder::Feeder(int motorPin) {
+    // Create the motor controller
+    if (motorPin >= 0) {  // Negative pins are for testing (no hardware init)
+        m_motor = std::make_unique<Motor>(motorPin);
+        std::cout << "Feeder initialized with motor on pin " << motorPin << std::endl;
+    } else {
+        std::cout << "Feeder initialized in test mode without hardware" << std::endl;
+    }
+}
 
 void Feeder::fishDetected(const cv::Mat& image) {
     std::cout << "FISH DETECTED! Activating feeding mechanism..." << std::endl;
@@ -19,9 +27,22 @@ void Feeder::noFishDetected(const cv::Mat& image) {
 }
 
 void Feeder::activateFeeder() {
-    // Here you would add code to control your feeding mechanism
-    // This could involve GPIO pins, servo motors, etc.
+    if (!m_motor || !m_motor->isInitialized()) {
+        std::cerr << "Cannot activate feeder: Motor not initialized" << std::endl;
+        return;
+    }
+    
     std::cout << "*** FEEDING MECHANISM ACTIVATED ***" << std::endl;
+    
+    // Run motor sequence for feeding
+    std::cout << "Running feeder motor at full speed..." << std::endl;
+    m_motor->run(100, 10, 1000);  // Full speed for 1 second
+    
+    std::cout << "Slowing down feeder motor..." << std::endl;
+    m_motor->run(50, 10, 500);    // Half speed for 0.5 seconds
+    
+    std::cout << "Stopping feeder motor..." << std::endl;
+    m_motor->stop();
 }
 
 void Feeder::saveImage(const cv::Mat& image, bool fishDetected) {

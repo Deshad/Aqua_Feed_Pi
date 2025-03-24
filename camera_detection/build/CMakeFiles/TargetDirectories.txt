@@ -1,4 +1,5 @@
 /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/fish_monitor.dir
+/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/motor_test_program.dir
 /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/edit_cache.dir
 /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/rebuild_cache.dir
 /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/list_install_components.dir

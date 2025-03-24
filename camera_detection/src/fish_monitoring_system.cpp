@@ -18,8 +18,8 @@ FishMonitoringSystem::FishMonitoringSystem() {
     std::cout << "Initializing image processor..." << std::endl;
     m_imageProcessor = std::make_unique<ImageProcessor>();
     
-    std::cout << "Initializing feeding mechanism..." << std::endl;
-    m_feeder = std::make_unique<Feeder>();
+    std::cout << "Initializing feeding mechanism with motor on GPIO pin 4..." << std::endl;
+    m_feeder = std::make_unique<Feeder>(4); // Motor on GPIO pin 4
     
     // Set up callback chain
     std::cout << "Setting up event callback chain..." << std::endl;
@@ -62,3 +62,4 @@ void FishMonitoringSystem::clearArchive() {
         std::cout << "Archive directory created." << std::endl;
     }
 }
+

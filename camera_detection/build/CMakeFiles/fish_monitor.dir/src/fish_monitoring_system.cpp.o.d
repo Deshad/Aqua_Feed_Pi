@@ -353,8 +353,9 @@ CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: \
  /usr/include/c++/12/bits/this_thread_sleep.h \
  /home/team35/Aqua_Feed_Pi/camera_detection/include/feeder.h \
  /home/team35/Aqua_Feed_Pi/camera_detection/include/image_processor.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/pir_sensor.h \
+ /home/team35/Aqua_Feed_Pi/camera_detection/include/motor.h \
  /usr/include/gpiod.h /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h \
+ /home/team35/Aqua_Feed_Pi/camera_detection/include/pir_sensor.h \
  /usr/include/c++/12/filesystem /usr/include/c++/12/bits/fs_fwd.h \
  /usr/include/c++/12/bits/fs_path.h /usr/include/c++/12/codecvt \
  /usr/include/c++/12/bits/fs_dir.h /usr/include/c++/12/bits/fs_ops.h

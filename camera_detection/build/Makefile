@@ -174,6 +174,19 @@ fish_monitor/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/build
 .PHONY : fish_monitor/fast
 
+#=============================================================================
+# Target rules for targets named motor_test_program
+
+# Build rule for target.
+motor_test_program: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 motor_test_program
+.PHONY : motor_test_program
+
+# fast build rule for target.
+motor_test_program/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/build
+.PHONY : motor_test_program/fast
+
 src/camera.o: src/camera.cpp.o
 .PHONY : src/camera.o
 
@@ -294,6 +307,57 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/motor.o: src/motor.cpp.o
+.PHONY : src/motor.o
+
+# target to build an object file
+src/motor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/motor.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/src/motor.cpp.o
+.PHONY : src/motor.cpp.o
+
+src/motor.i: src/motor.cpp.i
+.PHONY : src/motor.i
+
+# target to preprocess a source file
+src/motor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/motor.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/src/motor.cpp.i
+.PHONY : src/motor.cpp.i
+
+src/motor.s: src/motor.cpp.s
+.PHONY : src/motor.s
+
+# target to generate assembly for a file
+src/motor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/motor.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/src/motor.cpp.s
+.PHONY : src/motor.cpp.s
+
+src/motor_main.o: src/motor_main.cpp.o
+.PHONY : src/motor_main.o
+
+# target to build an object file
+src/motor_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o
+.PHONY : src/motor_main.cpp.o
+
+src/motor_main.i: src/motor_main.cpp.i
+.PHONY : src/motor_main.i
+
+# target to preprocess a source file
+src/motor_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/src/motor_main.cpp.i
+.PHONY : src/motor_main.cpp.i
+
+src/motor_main.s: src/motor_main.cpp.s
+.PHONY : src/motor_main.s
+
+# target to generate assembly for a file
+src/motor_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/src/motor_main.cpp.s
+.PHONY : src/motor_main.cpp.s
+
 src/pir_sensor.o: src/pir_sensor.cpp.o
 .PHONY : src/pir_sensor.o
 
@@ -331,6 +395,7 @@ help:
 	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... fish_monitor"
+	@echo "... motor_test_program"
 	@echo "... src/camera.o"
 	@echo "... src/camera.i"
 	@echo "... src/camera.s"
@@ -346,6 +411,12 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/motor.o"
+	@echo "... src/motor.i"
+	@echo "... src/motor.s"
+	@echo "... src/motor_main.o"
+	@echo "... src/motor_main.i"
+	@echo "... src/motor_main.s"
 	@echo "... src/pir_sensor.o"
 	@echo "... src/pir_sensor.i"
 	@echo "... src/pir_sensor.s"

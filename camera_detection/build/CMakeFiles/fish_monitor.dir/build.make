@@ -125,10 +125,24 @@ CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/image_processor.cpp -o CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s
 
+CMakeFiles/fish_monitor.dir/src/motor.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
+CMakeFiles/fish_monitor.dir/src/motor.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp
+CMakeFiles/fish_monitor.dir/src/motor.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fish_monitor.dir/src/motor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/motor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/motor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/motor.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp
+
+CMakeFiles/fish_monitor.dir/src/motor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/motor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp > CMakeFiles/fish_monitor.dir/src/motor.cpp.i
+
+CMakeFiles/fish_monitor.dir/src/motor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/motor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp -o CMakeFiles/fish_monitor.dir/src/motor.cpp.s
+
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/feeder.cpp
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fish_monitor.dir/src/feeder.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fish_monitor.dir/src/feeder.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/feeder.cpp.o -MF CMakeFiles/fish_monitor.dir/src/feeder.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/feeder.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/feeder.cpp
 
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/fish_monitor.dir/src/feeder.cpp.s: cmake_force
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_monitoring_system.cpp
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o -MF CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_monitoring_system.cpp
 
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.i: cmake_force
@@ -159,6 +173,7 @@ fish_monitor_OBJECTS = \
 "CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o" \
 "CMakeFiles/fish_monitor.dir/src/camera.cpp.o" \
 "CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o" \
+"CMakeFiles/fish_monitor.dir/src/motor.cpp.o" \
 "CMakeFiles/fish_monitor.dir/src/feeder.cpp.o" \
 "CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o"
 
@@ -169,6 +184,7 @@ fish_monitor: CMakeFiles/fish_monitor.dir/src/main.cpp.o
 fish_monitor: CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o
 fish_monitor: CMakeFiles/fish_monitor.dir/src/camera.cpp.o
 fish_monitor: CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o
+fish_monitor: CMakeFiles/fish_monitor.dir/src/motor.cpp.o
 fish_monitor: CMakeFiles/fish_monitor.dir/src/feeder.cpp.o
 fish_monitor: CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o
 fish_monitor: CMakeFiles/fish_monitor.dir/build.make
@@ -228,7 +244,7 @@ fish_monitor: /usr/lib/aarch64-linux-gnu/libopencv_photo.so.4.6.0
 fish_monitor: /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.6.0
 fish_monitor: /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.6.0
 fish_monitor: CMakeFiles/fish_monitor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable fish_monitor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable fish_monitor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fish_monitor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

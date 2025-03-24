@@ -41,6 +41,8 @@ private:
     void worker();
     
     std::string m_outputPath;
+    int m_width;
+    int m_height;
     std::atomic<bool> m_running;
     std::atomic<bool> m_captureRequested{false};
     std::thread m_thread;

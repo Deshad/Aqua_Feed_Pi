@@ -1,8 +1,12 @@
 #include "camera.h"
 #include <iostream>
+#include <sstream>
 
-Camera::Camera(const std::string& outputPath) 
-    : m_outputPath(outputPath), m_running(false) {}
+Camera::Camera(const std::string& outputPath, int width, int height) 
+    : m_outputPath(outputPath), 
+      m_width(width),
+      m_height(height),
+      m_running(false) {}
 
 Camera::~Camera() {
     stop();
@@ -51,10 +55,23 @@ void Camera::worker() {
             m_captureRequested = false;
         }
         
-        // Capture image using libcamera-still
+        // Capture image using libcamera-still with optimized settings
         std::cout << "Capturing image..." << std::endl;
-        std::string command = "libcamera-still -o " + m_outputPath;
-        int result = system(command.c_str());
+        
+        // Build command with specific optimizations:
+        // 1. Lower resolution (-w and -h options)
+        // 2. Minimal preview time (--immediate option)
+        // 3. Faster processing (--nopreview option)
+        // 4. Reduced image quality for speed (--quality option)
+        std::stringstream command;
+        command << "libcamera-still "
+                << "--immediate " // Capture immediately without settling time
+                << "--nopreview " // Disable preview window
+                << "-w " << m_width << " -h " << m_height << " " // Lower resolution 
+                << "--quality 85 " // Slightly reduced quality for faster processing
+                << "-o " << m_outputPath;
+        
+        int result = system(command.str().c_str());
         
         if (result != 0) {
             std::cerr << "Failed to capture image with libcamera-still" << std::endl;

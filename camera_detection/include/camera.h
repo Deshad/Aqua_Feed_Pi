@@ -21,7 +21,7 @@ public:
     
     Camera(const std::string& outputPath = "fish_detection.jpg,
            int width = 640, 
-           int height = 480");
+           int height = 480);
     ~Camera();
     
     // Start camera thread

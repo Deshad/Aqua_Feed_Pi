@@ -20,7 +20,7 @@ set(SOURCES
     src/feeder.cpp
     src/fish_monitoring_system.cpp
     src/fish_api.cpp  # Add the API implementation
-
+    src/ph_sensor.cpp
 )
 
 # Add main executables

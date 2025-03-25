@@ -13,6 +13,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/fish_monitor.dir/src/main.cpp.o.d"
   "CMakeFiles/fish_monitor.dir/src/motor.cpp.o"
   "CMakeFiles/fish_monitor.dir/src/motor.cpp.o.d"
+  "CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o"
+  "CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o.d"
   "CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o"
   "CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o.d"
   "fish_monitor"

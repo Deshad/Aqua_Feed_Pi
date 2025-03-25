@@ -382,6 +382,30 @@ src/motor_main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/src/motor_main.cpp.s
 .PHONY : src/motor_main.cpp.s
 
+src/ph_sensor.o: src/ph_sensor.cpp.o
+.PHONY : src/ph_sensor.o
+
+# target to build an object file
+src/ph_sensor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o
+.PHONY : src/ph_sensor.cpp.o
+
+src/ph_sensor.i: src/ph_sensor.cpp.i
+.PHONY : src/ph_sensor.i
+
+# target to preprocess a source file
+src/ph_sensor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.i
+.PHONY : src/ph_sensor.cpp.i
+
+src/ph_sensor.s: src/ph_sensor.cpp.s
+.PHONY : src/ph_sensor.s
+
+# target to generate assembly for a file
+src/ph_sensor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.s
+.PHONY : src/ph_sensor.cpp.s
+
 src/pir_sensor.o: src/pir_sensor.cpp.o
 .PHONY : src/pir_sensor.o
 
@@ -444,6 +468,9 @@ help:
 	@echo "... src/motor_main.o"
 	@echo "... src/motor_main.i"
 	@echo "... src/motor_main.s"
+	@echo "... src/ph_sensor.o"
+	@echo "... src/ph_sensor.i"
+	@echo "... src/ph_sensor.s"
 	@echo "... src/pir_sensor.o"
 	@echo "... src/pir_sensor.i"
 	@echo "... src/pir_sensor.s"

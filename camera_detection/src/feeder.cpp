@@ -36,7 +36,7 @@ void Feeder::activateFeeder() {
     
     // Run motor sequence for feeding
     std::cout << "Running feeder motor at full speed..." << std::endl;
-    m_motor->run(100, 10, 1000);  // Full speed for 1 second
+    m_motor->run(100, 10, 3000);  // Full speed for 1 second
     
     std::cout << "Slowing down feeder motor..." << std::endl;
     m_motor->run(50, 10, 500);    // Half speed for 0.5 seconds

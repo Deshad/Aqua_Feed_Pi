@@ -11,7 +11,10 @@ FishAPI::FishAPI(Motor* motor)
       m_postHandler(this),
       m_fishDetected(false),
       m_feedCount(0),
-      m_lastFeedTime(0) {
+      m_lastFeedTime(0),
+      m_currentPH(0.0f),
+      m_currentPHVoltage(0.0f),
+      m_lastPHReadTime(0) {
 }
 
 // Destructor
@@ -69,6 +72,19 @@ void FishAPI::threadFunction() {
 FishAPI::GETHandler::GETHandler(FishAPI* api) : m_api(api) {
 }
 
+void FishAPI::onPHSample(float pH, float voltage, int16_t adcValue) {
+    // Update pH sensor data
+    m_currentPH.store(pH);
+    m_currentPHVoltage.store(voltage);
+    m_currentPHAdcValue.store(adcValue);
+    m_lastPHReadTime = std::time(nullptr);
+    
+    // Optional: Log or print pH data
+    std::cout << "pH Sensor Reading - pH: " << pH 
+              << ", Voltage: " << voltage 
+              << ", ADC Value: " << adcValue << std::endl;
+}
+
 std::string FishAPI::GETHandler::getJSONString() {
     // Create JSON response
     Json::Value root;
@@ -92,6 +108,21 @@ std::string FishAPI::GETHandler::getJSONString() {
         data["last_feed_time"] = timeBuffer;
     } else {
         data["last_feed_time"] = "Never";
+    }
+
+// pH sensor information
+    data["current_ph"] = m_api->m_currentPH.load();
+    data["current_ph_voltage"] = m_api->m_currentPHVoltage.load();
+    data["current_ph_adc_value"] = m_api->m_currentPHAdcValue.load();
+    
+    // pH read time
+    if (m_api->m_lastPHReadTime > 0) {
+        char phTimeBuffer[100];
+        std::strftime(phTimeBuffer, sizeof(phTimeBuffer), "%Y-%m-%d %H:%M:%S", 
+                    std::localtime(&m_api->m_lastPHReadTime));
+        data["last_ph_read_time"] = phTimeBuffer;
+    } else {
+        data["last_ph_read_time"] = "Never";
     }
     
     root["success"] = true;

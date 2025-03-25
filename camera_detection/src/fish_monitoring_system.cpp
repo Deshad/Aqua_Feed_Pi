@@ -44,6 +44,9 @@ FishMonitoringSystem::FishMonitoringSystem() {
     // Create API with pointer to the same motor used by the feeder
     std::cout << "Initializing API..." << std::endl;
     m_api = std::make_unique<FishAPI>(m_feeder->getMotor());
+
+    std::cout << "Initializing pH sensor..." << std::endl;
+    m_phSensor = std::make_unique<PHSensor>();
     
     // Set up callback chain
     std::cout << "Setting up event callback chain..." << std::endl;
@@ -53,6 +56,11 @@ FishMonitoringSystem::FishMonitoringSystem() {
     
     // Also set up a callback to update the API when fish is detected
     m_imageProcessor->registerCallback(new FishAPICallback(m_api.get()));
+    
+    // Register pH sensor callback to API
+    m_phSensor->registerCallback(m_api.get());
+    m_phSensor->registerCallback(this);
+
 }
 
 FishMonitoringSystem::~FishMonitoringSystem() {
@@ -63,6 +71,7 @@ void FishMonitoringSystem::start() {
     std::cout << "Starting Fish Monitoring System..." << std::endl;
     m_camera->start();
     m_pirSensor->start();
+    m_phSensor->start();  // Start pH sensor monitoring
     m_api->start();  // Start the API
     std::cout << "System started and ready." << std::endl;
 }
@@ -71,6 +80,7 @@ void FishMonitoringSystem::stop() {
     std::cout << "Stopping Fish Monitoring System..." << std::endl;
     m_api->stop();  // Stop the API
     m_pirSensor->stop();
+    m_phSensor->stop();  // Stop pH sensor
     m_camera->stop();
     std::cout << "System stopped." << std::endl;
 }
@@ -80,6 +90,14 @@ void FishMonitoringSystem::motionDetected(gpiod_line_event e) {
     m_camera->captureImage();
 }
 
+void FishMonitoringSystem::onPHSample(float pH, float voltage, int16_t adcValue) {
+    // Optional: Add any additional system-level pH handling
+    std::cout << "System-level pH reading - pH: " << pH 
+              << ", Voltage: " << voltage 
+              << ", ADC Value: " << adcValue << std::endl;
+    
+    
+}
 void FishMonitoringSystem::clearArchive() {
     if (fs::exists("../archive")) {
         for (const auto& entry : fs::directory_iterator("../archive")) {

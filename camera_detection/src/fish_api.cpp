@@ -4,8 +4,9 @@
 #include <ctime>
 
 // Constructor
-FishAPI::FishAPI(Motor* motor) 
-    : m_motor(motor), 
+FishAPI::FishAPI(Motor* motor, PHSensor* phSensor) 
+    : m_motor(motor),
+      m_phSensor(phSensor),
       m_running(false),
       m_getHandler(this),
       m_postHandler(this),
@@ -15,6 +16,17 @@ FishAPI::FishAPI(Motor* motor)
       m_currentPH(0.0f),
       m_currentPHVoltage(0.0f),
       m_lastPHReadTime(0) {
+   if (m_phSensor) {
+        std::cout << "Initializing pH sensor in FishAPI constructor..." << std::endl;
+        if (m_phSensor->initialize()) {
+            std::cout << "pH sensor initialized successfully in FishAPI" << std::endl;
+        } else {
+            std::cerr << "Failed to initialize pH sensor in FishAPI" << std::endl;
+        }
+    } else {
+        std::cerr << "pH sensor is NULL in FishAPI constructor" << std::endl;
+    }
+
 }
 
 // Destructor
@@ -51,6 +63,38 @@ void FishAPI::setFishDetected(bool detected) {
 // Update last image path
 void FishAPI::setLastImagePath(const std::string& path) {
     m_lastImagePath = path;
+}
+
+// Request a pH reading
+float FishAPI::requestPHReading() {
+    std::cout << "requestPHReading() called" << std::endl;
+    
+    if (!m_phSensor) {
+        std::cerr << "ERROR: pH sensor object is NULL" << std::endl;
+        return -1.0f;
+    }
+    
+    std::cout << "pH sensor initialization status: " << (m_phSensor->isInitialized() ? "Initialized" : "Not initialized") << std::endl;
+    
+    if (!m_phSensor->isInitialized()) {
+        std::cerr << "pH sensor not initialized, attempting to initialize..." << std::endl;
+        if (!m_phSensor->initialize()) {
+            std::cerr << "pH sensor initialization failed" << std::endl;
+            return -1.0f;
+        }
+        std::cout << "pH sensor initialization successful" << std::endl;
+    }
+    
+    std::cout << "Reading pH value..." << std::endl;
+    float ph = m_phSensor->readPH();
+    
+    if (ph < 0) {
+        std::cerr << "Failed to read pH value" << std::endl;
+        return -1.0f;
+    }
+    
+    std::cout << "Successfully read pH value: " << ph << std::endl;
+    return ph;
 }
 
 // Thread function
@@ -92,6 +136,7 @@ std::string FishAPI::GETHandler::getJSONString() {
     
     // System information
     data["motor_initialized"] = (m_api->m_motor != nullptr && m_api->m_motor->isInitialized());
+    data["ph_sensor_initialized"] = (m_api->m_phSensor != nullptr && m_api->m_phSensor->isInitialized());
     data["feed_count"] = m_api->m_feedCount.load();
     
     // Fish detection status
@@ -110,7 +155,7 @@ std::string FishAPI::GETHandler::getJSONString() {
         data["last_feed_time"] = "Never";
     }
 
-// pH sensor information
+    // pH sensor information
     data["current_ph"] = m_api->m_currentPH.load();
     data["current_ph_voltage"] = m_api->m_currentPHVoltage.load();
     data["current_ph_adc_value"] = m_api->m_currentPHAdcValue.load();
@@ -210,6 +255,26 @@ void FishAPI::POSTHandler::postString(std::string postArg) {
             std::cout << "Feed command ignored - no fish detected and override not set" << std::endl;
         }
     }
+    else if (command == "read_ph") {
+        // This is the new command to read pH on demand
+        std::cout << "On-demand pH reading requested" << std::endl;
+        float ph = m_api->requestPHReading();
+        if (ph >= 0) {
+            std::cout << "pH reading successful: " << ph << std::endl;
+        } else {
+            std::cerr << "pH reading failed" << std::endl;
+        }
+    }
+   else if (command == "init_ph_sensor") {
+    std::cout << "Manual pH sensor initialization requested" << std::endl;
+    
+    if (m_api->m_phSensor) {
+        bool success = m_api->m_phSensor->initialize();
+        std::cout << "pH sensor initialization " << (success ? "successful" : "failed") << std::endl;
+    } else {
+        std::cerr << "pH sensor is NULL" << std::endl;
+    }
+}
     else {
         std::cerr << "Unknown command: " << command << std::endl;
     }

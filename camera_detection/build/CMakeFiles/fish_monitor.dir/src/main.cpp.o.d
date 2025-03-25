@@ -419,15 +419,4 @@ CMakeFiles/fish_monitor.dir/src/main.cpp.o: \
  /usr/include/asm-generic/sockios.h \
  /usr/include/aarch64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/fcgio.h /usr/include/fcgiapp.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/ph_sensor.h \
- /usr/include/fcntl.h /usr/include/aarch64-linux-gnu/bits/fcntl.h \
- /usr/include/aarch64-linux-gnu/bits/fcntl-linux.h \
- /usr/include/linux/falloc.h /usr/include/aarch64-linux-gnu/sys/ioctl.h \
- /usr/include/aarch64-linux-gnu/bits/ioctls.h \
- /usr/lib/linux/uapi/arm64/asm/ioctls.h /usr/include/asm-generic/ioctls.h \
- /usr/include/linux/ioctl.h /usr/lib/linux/uapi/arm64/asm/ioctl.h \
- /usr/include/asm-generic/ioctl.h \
- /usr/include/aarch64-linux-gnu/bits/ioctl-types.h \
- /usr/include/aarch64-linux-gnu/sys/ttydefaults.h \
- /usr/include/linux/i2c-dev.h /usr/include/i2c/smbus.h \
- /usr/include/linux/i2c.h
+ /home/team35/Aqua_Feed_Pi/camera_detection/include/ph_sensor.h

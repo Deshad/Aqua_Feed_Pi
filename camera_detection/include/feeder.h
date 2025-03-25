@@ -29,6 +29,7 @@ public:
      */
     void noFishDetected(const cv::Mat& image) override;
     
+    Motor* getMotor() {return m_motor.get();}
 private:
     /**
      * Activate the feeding mechanism

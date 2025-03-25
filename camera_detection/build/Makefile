@@ -235,6 +235,30 @@ src/feeder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/feeder.cpp.s
 .PHONY : src/feeder.cpp.s
 
+src/fish_api.o: src/fish_api.cpp.o
+.PHONY : src/fish_api.o
+
+# target to build an object file
+src/fish_api.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o
+.PHONY : src/fish_api.cpp.o
+
+src/fish_api.i: src/fish_api.cpp.i
+.PHONY : src/fish_api.i
+
+# target to preprocess a source file
+src/fish_api.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/fish_api.cpp.i
+.PHONY : src/fish_api.cpp.i
+
+src/fish_api.s: src/fish_api.cpp.s
+.PHONY : src/fish_api.s
+
+# target to generate assembly for a file
+src/fish_api.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/src/fish_api.cpp.s
+.PHONY : src/fish_api.cpp.s
+
 src/fish_monitoring_system.o: src/fish_monitoring_system.cpp.o
 .PHONY : src/fish_monitoring_system.o
 
@@ -402,6 +426,9 @@ help:
 	@echo "... src/feeder.o"
 	@echo "... src/feeder.i"
 	@echo "... src/feeder.s"
+	@echo "... src/fish_api.o"
+	@echo "... src/fish_api.i"
+	@echo "... src/fish_api.s"
 	@echo "... src/fish_monitoring_system.o"
 	@echo "... src/fish_monitoring_system.i"
 	@echo "... src/fish_monitoring_system.s"

@@ -5,6 +5,7 @@
 #include "feeder.h"
 #include "image_processor.h"
 #include "pir_sensor.h"
+#include "fish_api.h"
 #include <memory>
 
 /**
@@ -31,6 +32,8 @@ private:
     std::unique_ptr<Camera> m_camera;
     std::unique_ptr<ImageProcessor> m_imageProcessor;
     std::unique_ptr<Feeder> m_feeder;
+    std::unique_ptr<FishAPI> m_api;
+
 };
 
 #endif // FISH_MONITORING_SYSTEM_H

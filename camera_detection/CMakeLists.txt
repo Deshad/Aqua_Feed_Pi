@@ -19,6 +19,8 @@ set(SOURCES
     src/motor.cpp
     src/feeder.cpp
     src/fish_monitoring_system.cpp
+    src/fish_api.cpp  # Add the API implementation
+
 )
 
 # Add main executables
@@ -31,6 +33,9 @@ target_link_libraries(fish_monitor
     gpiod
     pthread
     -lgpiod  # Ensure explicit linking to gpiod library
+    jsoncpp
+    fcgi
+    fcgi++		 
 )
 
 # Link libraries to motor test program

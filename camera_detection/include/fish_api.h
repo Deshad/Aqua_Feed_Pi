@@ -3,11 +3,12 @@
 
 #include "json_fastcgi_web_api.h"
 #include "motor.h"
+#include "ph_sensor.h"
 #include <thread>
 #include <atomic>
 #include <string>
 
-class FishAPI {
+class FishAPI : public PHSensor::PHSensorCallbackInterface {
 public:
     FishAPI(Motor* motor);
     ~FishAPI();
@@ -23,6 +24,9 @@ public:
     
     // Update last image path
     void setLastImagePath(const std::string& path);
+
+    // Implement pH sensor callback
+    void onPHSample(float pH, float voltage, int16_t adcValue) override;
 
 private:
     // GET and POST callback implementations
@@ -58,6 +62,12 @@ private:
     std::string m_lastImagePath;
     std::atomic<int> m_feedCount;
     std::time_t m_lastFeedTime;
+
+    // pH sensor data
+    std::atomic<float> m_currentPH;
+    std::atomic<float> m_currentPHVoltage;
+    std::atomic<int16_t> m_currentPHAdcValue;
+    std::time_t m_lastPHReadTime;
 };
 
 #endif // FISH_API_H

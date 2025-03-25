@@ -15,6 +15,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/team35/Aqua_Feed_Pi/camera_detection/src/image_processor.cpp" "CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o" "gcc" "CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o.d"
   "/home/team35/Aqua_Feed_Pi/camera_detection/src/main.cpp" "CMakeFiles/fish_monitor.dir/src/main.cpp.o" "gcc" "CMakeFiles/fish_monitor.dir/src/main.cpp.o.d"
   "/home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp" "CMakeFiles/fish_monitor.dir/src/motor.cpp.o" "gcc" "CMakeFiles/fish_monitor.dir/src/motor.cpp.o.d"
+  "/home/team35/Aqua_Feed_Pi/camera_detection/src/ph_sensor.cpp" "CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o" "gcc" "CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o.d"
   "/home/team35/Aqua_Feed_Pi/camera_detection/src/pir_sensor.cpp" "CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o" "gcc" "CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o.d"
   )
 

@@ -83,12 +83,12 @@ clean: CMakeFiles/motor_test_program.dir/clean
 CMakeFiles/fish_monitor.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target fish_monitor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target fish_monitor"
 .PHONY : CMakeFiles/fish_monitor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/fish_monitor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 9
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fish_monitor.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 0
 .PHONY : CMakeFiles/fish_monitor.dir/rule
@@ -109,7 +109,7 @@ CMakeFiles/fish_monitor.dir/clean:
 CMakeFiles/motor_test_program.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=10,11,12 "Built target motor_test_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=11,12,13 "Built target motor_test_program"
 .PHONY : CMakeFiles/motor_test_program.dir/all
 
 # Build rule for subdir invocation for target.

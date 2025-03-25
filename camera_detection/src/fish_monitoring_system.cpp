@@ -1,8 +1,28 @@
+// fish_monitoring_system.cpp
 #include "fish_monitoring_system.h"
 #include <filesystem>
 #include <iostream>
 
 namespace fs = std::filesystem;
+
+// Define a dedicated callback class for updating the API
+class FishAPICallback : public ImageProcessor::FishDetectionCallbackInterface {
+private:
+    FishAPI* m_api;
+    
+public:
+    FishAPICallback(FishAPI* api) : m_api(api) {}
+    
+    void fishDetected(const cv::Mat& image) override {
+        m_api->setFishDetected(true);
+        m_api->setLastImagePath("fish_detected.jpg");
+    }
+    
+    void noFishDetected(const cv::Mat& image) override {
+        m_api->setFishDetected(false);
+        m_api->setLastImagePath("no_fish.jpg");
+    }
+};
 
 FishMonitoringSystem::FishMonitoringSystem() {
     // Clear archive
@@ -13,7 +33,7 @@ FishMonitoringSystem::FishMonitoringSystem() {
     m_pirSensor = std::make_unique<PirSensor>();  
     
     std::cout << "Initializing camera module..." << std::endl;
-    m_camera = std::make_unique<Camera>("fish_detection.jpg",640,480);
+    m_camera = std::make_unique<Camera>("fish_detection.jpg", 640, 480);
     
     std::cout << "Initializing image processor..." << std::endl;
     m_imageProcessor = std::make_unique<ImageProcessor>();
@@ -21,11 +41,18 @@ FishMonitoringSystem::FishMonitoringSystem() {
     std::cout << "Initializing feeding mechanism with motor on GPIO pin 4..." << std::endl;
     m_feeder = std::make_unique<Feeder>(4); // Motor on GPIO pin 4
     
+    // Create API with pointer to the same motor used by the feeder
+    std::cout << "Initializing API..." << std::endl;
+    m_api = std::make_unique<FishAPI>(m_feeder->getMotor());
+    
     // Set up callback chain
     std::cout << "Setting up event callback chain..." << std::endl;
     m_pirSensor->registerCallback(this);
     m_camera->registerCallback(m_imageProcessor.get());
     m_imageProcessor->registerCallback(m_feeder.get());
+    
+    // Also set up a callback to update the API when fish is detected
+    m_imageProcessor->registerCallback(new FishAPICallback(m_api.get()));
 }
 
 FishMonitoringSystem::~FishMonitoringSystem() {
@@ -36,11 +63,13 @@ void FishMonitoringSystem::start() {
     std::cout << "Starting Fish Monitoring System..." << std::endl;
     m_camera->start();
     m_pirSensor->start();
+    m_api->start();  // Start the API
     std::cout << "System started and ready." << std::endl;
 }
 
 void FishMonitoringSystem::stop() {
     std::cout << "Stopping Fish Monitoring System..." << std::endl;
+    m_api->stop();  // Stop the API
     m_pirSensor->stop();
     m_camera->stop();
     std::cout << "System stopped." << std::endl;
@@ -62,4 +91,3 @@ void FishMonitoringSystem::clearArchive() {
         std::cout << "Archive directory created." << std::endl;
     }
 }
-

@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/fish_monitor.dir/src/camera.cpp.o.d"
   "CMakeFiles/fish_monitor.dir/src/feeder.cpp.o"
   "CMakeFiles/fish_monitor.dir/src/feeder.cpp.o.d"
+  "CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o"
+  "CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o.d"
   "CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o"
   "CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o.d"
   "CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o"

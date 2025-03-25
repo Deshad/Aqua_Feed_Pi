@@ -10,7 +10,7 @@
 
 class FishAPI : public PHSensor::PHSensorCallbackInterface {
 public:
-    FishAPI(Motor* motor);
+    FishAPI(Motor* motor,PHSensor* phSensor);
     ~FishAPI();
 
     // Start the API in a separate thread
@@ -24,6 +24,9 @@ public:
     
     // Update last image path
     void setLastImagePath(const std::string& path);
+    
+    //Request Ph Sampling
+    float requestPHReading();
 
     // Implement pH sensor callback
     void onPHSample(float pH, float voltage, int16_t adcValue) override;
@@ -51,6 +54,7 @@ private:
 
     // Member variables
     Motor* m_motor;
+    PHSensor* m_phSensor;
     std::atomic<bool> m_running;
     std::thread m_thread;
     JSONCGIHandler m_handler;

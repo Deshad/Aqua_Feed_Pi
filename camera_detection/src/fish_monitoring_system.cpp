@@ -41,12 +41,17 @@ FishMonitoringSystem::FishMonitoringSystem() {
     std::cout << "Initializing feeding mechanism with motor on GPIO pin 4..." << std::endl;
     m_feeder = std::make_unique<Feeder>(4); // Motor on GPIO pin 4
     
-    // Create API with pointer to the same motor used by the feeder
-    std::cout << "Initializing API..." << std::endl;
-    m_api = std::make_unique<FishAPI>(m_feeder->getMotor());
-
     std::cout << "Initializing pH sensor..." << std::endl;
     m_phSensor = std::make_unique<PHSensor>();
+    if (m_phSensor->initialize()) {
+	 std::cout << "pH sensor initialized successfully" << std::endl;
+    } else {
+    	std::cerr << "Failed to initialize pH sensor" << std::endl;
+	}
+    // Create API with pointer to the same motor used by the feeder
+    std::cout << "Initializing API..." << std::endl;
+    m_api = std::make_unique<FishAPI>(m_feeder->getMotor(),m_phSensor.get());
+;
     
     // Set up callback chain
     std::cout << "Setting up event callback chain..." << std::endl;
@@ -71,7 +76,7 @@ void FishMonitoringSystem::start() {
     std::cout << "Starting Fish Monitoring System..." << std::endl;
     m_camera->start();
     m_pirSensor->start();
-    m_phSensor->start();  // Start pH sensor monitoring
+   // m_phSensor->start();  // Start pH sensor monitoring
     m_api->start();  // Start the API
     std::cout << "System started and ready." << std::endl;
 }
@@ -80,7 +85,7 @@ void FishMonitoringSystem::stop() {
     std::cout << "Stopping Fish Monitoring System..." << std::endl;
     m_api->stop();  // Stop the API
     m_pirSensor->stop();
-    m_phSensor->stop();  // Stop pH sensor
+    m_phSensor->cleanup();  // Stop pH sensor
     m_camera->stop();
     std::cout << "System stopped." << std::endl;
 }

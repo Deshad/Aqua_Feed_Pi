@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o CMakeFiles/motor_test_program.dir/src/motor.cpp.o -o motor_test_program  -lgpiod -lpthread -lgpiod 

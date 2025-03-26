@@ -11,7 +11,7 @@ find_package(OpenCV REQUIRED)
 # Include directories
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}/include)
 
-# Add source files (excluding main.cpp)
+# Add source files 
 set(SOURCES
     src/pir_sensor.cpp
     src/camera.cpp
@@ -19,7 +19,7 @@ set(SOURCES
     src/motor.cpp
     src/feeder.cpp
     src/fish_monitoring_system.cpp
-    src/fish_api.cpp  # Add the API implementation
+    src/fish_api.cpp  
     src/ph_sensor.cpp
 )
 
@@ -32,13 +32,12 @@ target_link_libraries(fish_monitor
     ${OpenCV_LIBS}
     gpiod
     pthread
-    -lgpiod  # Ensure explicit linking to gpiod library
+    -lgpiod  
     jsoncpp
     fcgi
     fcgi++		 
 )
 
-# Link libraries to motor test program
 target_link_libraries(motor_test_program
     gpiod
     pthread

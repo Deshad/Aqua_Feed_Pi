@@ -73,7 +73,7 @@ Execute the main script:
 ```bash
 ./ feed_fish
 ```
-![Aqua Matic Flow Chart](images/fish_detection.png) 
+![Aqua Matic Flow Chart](images/fish_detection.jpg) 
 
 ---
 

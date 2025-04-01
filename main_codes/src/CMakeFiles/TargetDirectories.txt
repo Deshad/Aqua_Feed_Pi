@@ -1,0 +1,8 @@
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/fish_monitor.dir
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/motor_test_program.dir
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/edit_cache.dir
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/rebuild_cache.dir
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/list_install_components.dir
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/install.dir
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/install/local.dir
+/home/team35/Aqua_Feed_Pi/Main/src/CMakeFiles/install/strip.dir

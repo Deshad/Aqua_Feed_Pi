@@ -1,3 +1,0 @@
-[submodule "fastcgi_json_cpp_api"]
-    path = fastcgi_json_cpp_api
-    url = https://github.com/berndporr/json_fastcgi_web_api.git

@@ -8,8 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp" "CMakeFiles/motor_test_program.dir/src/motor.cpp.o" "gcc" "CMakeFiles/motor_test_program.dir/src/motor.cpp.o.d"
-  "/home/team35/Aqua_Feed_Pi/camera_detection/src/motor_main.cpp" "CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o" "gcc" "CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o.d"
+  "/home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp" "CMakeFiles/motor_test_program.dir/src/motor.cpp.o" "gcc" "CMakeFiles/motor_test_program.dir/src/motor.cpp.o.d"
+  "/home/team35/Aqua_Feed_Pi/main_codes/src/motor_main.cpp" "CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o" "gcc" "CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o.d"
   )
 
 # Targets to which this target links.

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/team35/Aqua_Feed_Pi/camera_detection/include
+CXX_INCLUDES = -I/home/team35/Aqua_Feed_Pi/main_codes/include
 
 CXX_FLAGS = -std=gnu++17
 

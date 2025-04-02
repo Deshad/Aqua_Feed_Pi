@@ -44,14 +44,14 @@ FishMonitoringSystem::FishMonitoringSystem() {
     std::cout << "Initializing pH sensor..." << std::endl;
     m_phSensor = std::make_unique<PHSensor>();
     if (m_phSensor->initialize()) {
-	 std::cout << "pH sensor initialized successfully" << std::endl;
+         std::cout << "pH sensor initialized successfully" << std::endl;
     } else {
-    	std::cerr << "Failed to initialize pH sensor" << std::endl;
-	}
-    // Create API with pointer to the same motor used by the feeder
+        std::cerr << "Failed to initialize pH sensor" << std::endl;
+    }
+    
+    // Create API with pointer to the same motor, pH sensor, and PIR sensor
     std::cout << "Initializing API..." << std::endl;
-    m_api = std::make_unique<FishAPI>(m_feeder->getMotor(),m_phSensor.get());
-;
+    m_api = std::make_unique<FishAPI>(m_feeder->getMotor(), m_phSensor.get(), m_pirSensor.get()); // Add PirSensor*
     
     // Set up callback chain
     std::cout << "Setting up event callback chain..." << std::endl;
@@ -65,7 +65,6 @@ FishMonitoringSystem::FishMonitoringSystem() {
     // Register pH sensor callback to API
     m_phSensor->registerCallback(m_api.get());
     m_phSensor->registerCallback(this);
-
 }
 
 FishMonitoringSystem::~FishMonitoringSystem() {
@@ -74,9 +73,9 @@ FishMonitoringSystem::~FishMonitoringSystem() {
 
 void FishMonitoringSystem::start() {
     std::cout << "Starting Fish Monitoring System..." << std::endl;
-    m_camera->start();
-    m_pirSensor->start();
-   // m_phSensor->start();  // Start pH sensor monitoring
+    // m_camera->start();
+    // m_pirSensor->start();
+    // m_phSensor->start();  // Uncomment if PHSensor has a start() method
     m_api->start();  // Start the API
     std::cout << "System started and ready." << std::endl;
 }
@@ -84,9 +83,9 @@ void FishMonitoringSystem::start() {
 void FishMonitoringSystem::stop() {
     std::cout << "Stopping Fish Monitoring System..." << std::endl;
     m_api->stop();  // Stop the API
-    m_pirSensor->stop();
+    // m_pirSensor->stop();
     m_phSensor->cleanup();  // Stop pH sensor
-    m_camera->stop();
+    // m_camera->stop();
     std::cout << "System stopped." << std::endl;
 }
 
@@ -96,13 +95,11 @@ void FishMonitoringSystem::motionDetected(gpiod_line_event e) {
 }
 
 void FishMonitoringSystem::onPHSample(float pH, float voltage, int16_t adcValue) {
-    // Optional: Add any additional system-level pH handling
     std::cout << "System-level pH reading - pH: " << pH 
               << ", Voltage: " << voltage 
               << ", ADC Value: " << adcValue << std::endl;
-    
-    
 }
+
 void FishMonitoringSystem::clearArchive() {
     if (fs::exists("../archive")) {
         for (const auto& entry : fs::directory_iterator("../archive")) {

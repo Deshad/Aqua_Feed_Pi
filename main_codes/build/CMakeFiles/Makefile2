@@ -54,10 +54,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team35/Aqua_Feed_Pi/camera_detection
+CMAKE_SOURCE_DIR = /home/team35/Aqua_Feed_Pi/main_codes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team35/Aqua_Feed_Pi/camera_detection/build
+CMAKE_BINARY_DIR = /home/team35/Aqua_Feed_Pi/main_codes/build
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -83,14 +83,14 @@ clean: CMakeFiles/motor_test_program.dir/clean
 CMakeFiles/fish_monitor.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/fish_monitor.dir/build.make CMakeFiles/fish_monitor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target fish_monitor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9,10 "Built target fish_monitor"
 .PHONY : CMakeFiles/fish_monitor.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/fish_monitor.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles 10
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/fish_monitor.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles 0
 .PHONY : CMakeFiles/fish_monitor.dir/rule
 
 # Convenience name for target.
@@ -109,14 +109,14 @@ CMakeFiles/fish_monitor.dir/clean:
 CMakeFiles/motor_test_program.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/motor_test_program.dir/build.make CMakeFiles/motor_test_program.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=11,12,13 "Built target motor_test_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=11,12,13 "Built target motor_test_program"
 .PHONY : CMakeFiles/motor_test_program.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/motor_test_program.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles 3
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/motor_test_program.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles 0
 .PHONY : CMakeFiles/motor_test_program.dir/rule
 
 # Convenience name for target.

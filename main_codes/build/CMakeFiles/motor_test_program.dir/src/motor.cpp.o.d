@@ -1,7 +1,7 @@
 CMakeFiles/motor_test_program.dir/src/motor.cpp.o: \
- /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp \
+ /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp \
  /usr/include/stdc-predef.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/motor.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/motor.h \
  /usr/include/gpiod.h /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h \
  /usr/include/c++/12/stdlib.h /usr/include/c++/12/cstdlib \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \

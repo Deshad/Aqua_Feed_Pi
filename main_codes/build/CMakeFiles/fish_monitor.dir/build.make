@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team35/Aqua_Feed_Pi/camera_detection
+CMAKE_SOURCE_DIR = /home/team35/Aqua_Feed_Pi/main_codes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team35/Aqua_Feed_Pi/camera_detection/build
+CMAKE_BINARY_DIR = /home/team35/Aqua_Feed_Pi/main_codes/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/fish_monitor.dir/depend.make
@@ -70,130 +70,130 @@ include CMakeFiles/fish_monitor.dir/progress.make
 include CMakeFiles/fish_monitor.dir/flags.make
 
 CMakeFiles/fish_monitor.dir/src/main.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/main.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/main.cpp
+CMakeFiles/fish_monitor.dir/src/main.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/main.cpp
 CMakeFiles/fish_monitor.dir/src/main.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/fish_monitor.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/main.cpp.o -MF CMakeFiles/fish_monitor.dir/src/main.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/main.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/fish_monitor.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/main.cpp.o -MF CMakeFiles/fish_monitor.dir/src/main.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/main.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/main.cpp
 
 CMakeFiles/fish_monitor.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/main.cpp > CMakeFiles/fish_monitor.dir/src/main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/main.cpp > CMakeFiles/fish_monitor.dir/src/main.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/main.cpp -o CMakeFiles/fish_monitor.dir/src/main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/main.cpp -o CMakeFiles/fish_monitor.dir/src/main.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/pir_sensor.cpp
+CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/pir_sensor.cpp
 CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/pir_sensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/pir_sensor.cpp
 
 CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/pir_sensor.cpp > CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/pir_sensor.cpp > CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/pir_sensor.cpp -o CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/pir_sensor.cpp -o CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/camera.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/camera.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/camera.cpp
+CMakeFiles/fish_monitor.dir/src/camera.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/camera.cpp
 CMakeFiles/fish_monitor.dir/src/camera.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/fish_monitor.dir/src/camera.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/camera.cpp.o -MF CMakeFiles/fish_monitor.dir/src/camera.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/camera.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/fish_monitor.dir/src/camera.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/camera.cpp.o -MF CMakeFiles/fish_monitor.dir/src/camera.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/camera.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/camera.cpp
 
 CMakeFiles/fish_monitor.dir/src/camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/camera.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/camera.cpp > CMakeFiles/fish_monitor.dir/src/camera.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/camera.cpp > CMakeFiles/fish_monitor.dir/src/camera.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/camera.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/camera.cpp -o CMakeFiles/fish_monitor.dir/src/camera.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/camera.cpp -o CMakeFiles/fish_monitor.dir/src/camera.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/image_processor.cpp
+CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/image_processor.cpp
 CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/image_processor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/image_processor.cpp
 
 CMakeFiles/fish_monitor.dir/src/image_processor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/image_processor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/image_processor.cpp > CMakeFiles/fish_monitor.dir/src/image_processor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/image_processor.cpp > CMakeFiles/fish_monitor.dir/src/image_processor.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/image_processor.cpp -o CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/image_processor.cpp -o CMakeFiles/fish_monitor.dir/src/image_processor.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/motor.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/motor.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp
+CMakeFiles/fish_monitor.dir/src/motor.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp
 CMakeFiles/fish_monitor.dir/src/motor.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fish_monitor.dir/src/motor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/motor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/motor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/motor.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/fish_monitor.dir/src/motor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/motor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/motor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/motor.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp
 
 CMakeFiles/fish_monitor.dir/src/motor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/motor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp > CMakeFiles/fish_monitor.dir/src/motor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp > CMakeFiles/fish_monitor.dir/src/motor.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/motor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/motor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp -o CMakeFiles/fish_monitor.dir/src/motor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp -o CMakeFiles/fish_monitor.dir/src/motor.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/feeder.cpp
+CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/feeder.cpp
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fish_monitor.dir/src/feeder.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/feeder.cpp.o -MF CMakeFiles/fish_monitor.dir/src/feeder.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/feeder.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/feeder.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/fish_monitor.dir/src/feeder.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/feeder.cpp.o -MF CMakeFiles/fish_monitor.dir/src/feeder.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/feeder.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/feeder.cpp
 
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/feeder.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/feeder.cpp > CMakeFiles/fish_monitor.dir/src/feeder.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/feeder.cpp > CMakeFiles/fish_monitor.dir/src/feeder.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/feeder.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/feeder.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/feeder.cpp -o CMakeFiles/fish_monitor.dir/src/feeder.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/feeder.cpp -o CMakeFiles/fish_monitor.dir/src/feeder.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_monitoring_system.cpp
+CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/fish_monitoring_system.cpp
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o -MF CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_monitoring_system.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o -MF CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/fish_monitoring_system.cpp
 
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_monitoring_system.cpp > CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/fish_monitoring_system.cpp > CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_monitoring_system.cpp -o CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/fish_monitoring_system.cpp -o CMakeFiles/fish_monitor.dir/src/fish_monitoring_system.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_api.cpp
+CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/fish_api.cpp
 CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o -MF CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_api.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o -MF CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/fish_api.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/fish_api.cpp
 
 CMakeFiles/fish_monitor.dir/src/fish_api.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/fish_api.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_api.cpp > CMakeFiles/fish_monitor.dir/src/fish_api.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/fish_api.cpp > CMakeFiles/fish_monitor.dir/src/fish_api.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/fish_api.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/fish_api.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/fish_api.cpp -o CMakeFiles/fish_monitor.dir/src/fish_api.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/fish_api.cpp -o CMakeFiles/fish_monitor.dir/src/fish_api.cpp.s
 
 CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o: CMakeFiles/fish_monitor.dir/flags.make
-CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/ph_sensor.cpp
+CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/ph_sensor.cpp
 CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o: CMakeFiles/fish_monitor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/ph_sensor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o -MF CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o.d -o CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/ph_sensor.cpp
 
 CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/ph_sensor.cpp > CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/ph_sensor.cpp > CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.i
 
 CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/ph_sensor.cpp -o CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/ph_sensor.cpp -o CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.s
 
 # Object files for target fish_monitor
 fish_monitor_OBJECTS = \
@@ -276,7 +276,7 @@ fish_monitor: /usr/lib/aarch64-linux-gnu/libopencv_photo.so.4.6.0
 fish_monitor: /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.6.0
 fish_monitor: /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.6.0
 fish_monitor: CMakeFiles/fish_monitor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable fish_monitor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable fish_monitor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/fish_monitor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -288,6 +288,6 @@ CMakeFiles/fish_monitor.dir/clean:
 .PHONY : CMakeFiles/fish_monitor.dir/clean
 
 CMakeFiles/fish_monitor.dir/depend:
-	cd /home/team35/Aqua_Feed_Pi/camera_detection/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team35/Aqua_Feed_Pi/camera_detection /home/team35/Aqua_Feed_Pi/camera_detection /home/team35/Aqua_Feed_Pi/camera_detection/build /home/team35/Aqua_Feed_Pi/camera_detection/build /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/fish_monitor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/team35/Aqua_Feed_Pi/main_codes/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team35/Aqua_Feed_Pi/main_codes /home/team35/Aqua_Feed_Pi/main_codes /home/team35/Aqua_Feed_Pi/main_codes/build /home/team35/Aqua_Feed_Pi/main_codes/build /home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles/fish_monitor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/fish_monitor.dir/depend
 

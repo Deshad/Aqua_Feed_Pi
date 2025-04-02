@@ -70,7 +70,29 @@ function App() {
     }
   };
 
-  const toggleAutoMode = () => setIsAutoMode(!isAutoMode);
+  // const toggleAutoMode = () => setIsAutoMode(!isAutoMode);
+  const toggleAutoMode = async () => {
+    setIsAutoMode(prev => !prev); // Toggle locally first
+    try {
+      const response = await fetch('/api', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          command: "set_auto_mode",
+          enabled: !isAutoMode, // Send the new state
+        }),
+      });
+
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      const data = await response.json();
+      if (!data.success) throw new Error(data.message || 'Failed to set auto mode');
+    } catch (error) {
+      console.error('Error toggling auto mode:', error);
+      setConnectionError('Failed to update auto mode');
+    }
+  };
 
   const retryConnection = () => {
     setConnectionStatus(prev => ({
@@ -115,7 +137,8 @@ function App() {
       
       setPhHistory(prev => [...prev.slice(-19), newEntry]); // Keep last 20 entries
       
-      setSensorData({
+      // setSensorData({
+      const newSensorData = {
         ph: newPhValue,
         fishDetected: backendData.fish_detected || false,
         motorStatus: backendData.motor_initialized || false,
@@ -123,9 +146,16 @@ function App() {
         feed_count: backendData.feed_count,
         auto_feed_count: backendData.auto_feed_count,
         last_feed_time: backendData.last_feed_time === "Never" ? undefined : backendData.last_feed_time,
+	auto_last_feed_time: backendData.auto_last_feed_time === "Never" ? undefined : backendData.auto_last_feed_time,
         ph_sensor_initialized: backendData.ph_sensor_initialized
-      });
+      };
   
+
+      setSensorData(newSensorData);
+      // Sync isAutoMode with fishDetected (overrides manual toggle)
+      // setIsAutoMode(newSensorData.fishDetected);
+
+
       setConnectionStatus(prev => ({
         ...prev,
         isConnected: true,
@@ -225,9 +255,9 @@ function App() {
                 {isAutoMode ? 'Auto Mode (ON)' : 'Auto Mode (OFF)'}
               </button>
                {/* Timestamp for Auto Mode */}
-                {sensorData.last_feed_time && (
+                {sensorData.auto_last_feed_time && (
                   <div className="text-sm text-gray-500 mt-2">
-                    Last feed time: {new Date(sensorData.last_feed_time).toLocaleString()}
+                    Last feed time: {new Date(sensorData.auto_last_feed_time).toLocaleString()}
                   </div>
                 )}
             </div>

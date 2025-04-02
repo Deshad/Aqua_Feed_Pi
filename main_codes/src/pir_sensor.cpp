@@ -53,25 +53,35 @@ void PirSensor::registerCallback(MotionCallbackInterface* callback) {
 }
 
 void PirSensor::worker() {
-    std::cout << "PIR sensor thread started. Waiting for motion events..." << std::endl;
-    
-    while (m_running) {
-        // Wait for motion event with timeout
-        const timespec ts = { 5, 0 }; // 5 second timeout
-        // This blocks till an interrupt has happened!
-        int r = gpiod_line_event_wait(m_line, &ts);
-        
-        // Check if it really has been an event
-        if (1 == r) {
-            gpiod_line_event event;
-            gpiod_line_event_read(m_line, &event);
-            
-            // Call our event handler (this is our userspace ISR!)
-            gpioEvent(event);
+    try {
+        std::cout << "PIR sensor thread started. Waiting for motion events..." << std::endl;
+
+        while (m_running) {
+            // Wait for motion event with timeout
+            const timespec ts = { 5, 0 }; // 5 second timeout
+            int r = gpiod_line_event_wait(m_line, &ts);
+
+            if (r == -1) {
+                throw std::runtime_error("Error while waiting for GPIO event");
+            }
+
+            // Check if it really has been an event
+            if (r == 1) {
+                gpiod_line_event event;
+                if (gpiod_line_event_read(m_line, &event) == -1) {
+                    throw std::runtime_error("Failed to read GPIO event");
+                }
+
+                // Call our event handler
+                gpioEvent(event);
+            }
         }
+
+        std::cout << "PIR sensor thread stopped." << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "Exception in PIR sensor worker thread: " << e.what() << std::endl;
+        m_running = false;
     }
-    
-    std::cout << "PIR sensor thread stopped." << std::endl;
 }
 
 void PirSensor::gpioEvent(gpiod_line_event& event) {

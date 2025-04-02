@@ -4,20 +4,28 @@
 #include <ctime>
 
 // Constructor
-FishAPI::FishAPI(Motor* motor, PHSensor* phSensor) 
+FishAPI::FishAPI(Motor* motor, PHSensor* phSensor, PirSensor* pirSensor)
     : m_motor(motor),
       m_phSensor(phSensor),
+      m_pirSensor(pirSensor), // Use provided PirSensor
+      m_camera(), // Initialize Camera (adjust constructor as needed)
+      m_imageProcessor(),
       m_running(false),
       m_getHandler(this),
       m_postHandler(this),
       m_fishDetected(false),
       m_feedCount(0),
-      m_autoFeedCount(0),  // Initialize Auto Feed Counter
+      m_autoFeedCount(0),
       m_lastFeedTime(0),
+      m_AutolastFeedTime(0),
+      m_autoModeEnabled(true),
       m_currentPH(0.0f),
       m_currentPHVoltage(0.0f),
       m_lastPHReadTime(0) {
-   if (m_phSensor) {
+    m_pirSensor->registerCallback(this);
+    m_camera.registerCallback(&m_imageProcessor); // Camera sends images to ImageProcessor
+    m_imageProcessor.registerCallback(this); // ImageProcessor notifies FishAPI
+    if (m_phSensor) {
         std::cout << "Initializing pH sensor in FishAPI constructor..." << std::endl;
         if (m_phSensor->initialize()) {
             std::cout << "pH sensor initialized successfully in FishAPI" << std::endl;
@@ -27,7 +35,6 @@ FishAPI::FishAPI(Motor* motor, PHSensor* phSensor)
     } else {
         std::cerr << "pH sensor is NULL in FishAPI constructor" << std::endl;
     }
-
 }
 
 // Destructor
@@ -40,6 +47,10 @@ void FishAPI::start() {
     if (!m_running) {
         m_running = true;
         m_thread = std::thread(&FishAPI::threadFunction, this);
+        if (m_autoModeEnabled) {
+            m_pirSensor->start(); // Use pointer
+            m_camera.start();
+        }
         std::cout << "API thread started" << std::endl;
     }
 }
@@ -48,8 +59,10 @@ void FishAPI::start() {
 void FishAPI::stop() {
     if (m_running) {
         m_running = false;
+        m_pirSensor->stop(); // Use pointer
+        m_camera.stop();
         if (m_thread.joinable()) {
-            m_handler.stop();  // Stop the handler first
+            m_handler.stop();
             m_thread.join();
         }
         std::cout << "API thread stopped" << std::endl;
@@ -59,6 +72,10 @@ void FishAPI::stop() {
 // Update fish detection status
 void FishAPI::setFishDetected(bool detected) {
     m_fishDetected = detected;
+    std::cout << "Fish detected set to: " << (detected ? "true" : "false") << std::endl;
+    if (detected && m_autoModeEnabled) {
+        feedFish(false); // Trigger automatic feeding only if auto mode is enabled
+    }
 }
 
 // Update last image path
@@ -66,18 +83,65 @@ void FishAPI::setLastImagePath(const std::string& path) {
     m_lastImagePath = path;
 }
 
+// Centralized feeding logic
+void FishAPI::feedFish(bool override) {
+    if ((m_autoModeEnabled && m_fishDetected) || override) {
+        std::cout << "Feeding fish..." << std::endl;
+        if (m_motor && m_motor->isInitialized()) {
+            m_motor->run(100, 10, 3000);
+            m_motor->run(50, 10, 500);
+            m_motor->stop();
+            // m_lastFeedTime = std::time(nullptr);
+            if (override) {
+                m_feedCount++;
+                m_lastFeedTime = std::time(nullptr);
+            } else {
+                m_autoFeedCount++;
+                m_AutolastFeedTime = std::time(nullptr);
+            }
+        } else {
+            std::cerr << "Motor not initialized" << std::endl;
+        }
+    } else {
+        std::cout << "Feed ignored - auto mode disabled or no fish detected and override not set" << std::endl;
+    }
+}
+
+// Motion detection callback from PIR sensor
+void FishAPI::motionDetected(gpiod_line_event event) {
+    if (m_autoModeEnabled) {
+        std::cout << "Motion detected, triggering camera..." << std::endl;
+        m_camera.captureImage(); // Trigger camera to capture an image
+    } else {
+        std::cout << "Motion detected, but auto mode is off. Ignoring..." << std::endl;
+    }
+}
+
+// Fish detection callbacks from ImageProcessor
+void FishAPI::fishDetected(const cv::Mat& image) {
+    std::cout << "FishAPI: Fish detected callback received" << std::endl;
+    if (m_autoModeEnabled) {
+        setFishDetected(true);
+        setLastImagePath("last_detected_image.jpg");
+        cv::imwrite("last_detected_image.jpg", image); // Save image for reference
+    }
+}
+
+void FishAPI::noFishDetected(const cv::Mat& image) {
+    std::cout << "FishAPI: No fish detected callback received" << std::endl;
+    if (m_autoModeEnabled) {
+        setFishDetected(false);
+    }
+}
+
 // Request a pH reading
 float FishAPI::requestPHReading() {
-
     std::cout << "requestPHReading() called" << std::endl;
-    
     if (!m_phSensor) {
         std::cerr << "ERROR: pH sensor object is NULL" << std::endl;
         return -1.0f;
     }
-    
     std::cout << "pH sensor initialization status: " << (m_phSensor->isInitialized() ? "Initialized" : "Not initialized") << std::endl;
-    
     if (!m_phSensor->isInitialized()) {
         std::cerr << "pH sensor not initialized, attempting to initialize..." << std::endl;
         if (!m_phSensor->initialize()) {
@@ -86,15 +150,13 @@ float FishAPI::requestPHReading() {
         }
         std::cout << "pH sensor initialization successful" << std::endl;
     }
-    
     std::cout << "Reading pH value..." << std::endl;
     float ph = m_phSensor->readPH();
-    std::cout << "Raw pH value from sensor: " << ph << std::endl; //syafiq add this
+    std::cout << "Raw pH value from sensor: " << ph << std::endl;
     if (ph < 0) {
         std::cerr << "Failed to read pH value" << std::endl;
         return -1.0f;
     }
-    
     std::cout << "Successfully read pH value: " << ph << std::endl;
     return ph;
 }
@@ -102,13 +164,12 @@ float FishAPI::requestPHReading() {
 // Thread function
 void FishAPI::threadFunction() {
     try {
-        // Start the FastCGI handler with callbacks
         m_handler.start(&m_getHandler, &m_postHandler, "/tmp/fish_api.socket");
-        
-        // Keep thread alive until stopped
         while (m_running) {
             std::this_thread::sleep_for(std::chrono::seconds(1));
         }
+        // Ensure the handler stops when m_running is false
+        m_handler.stop();
     } catch (const std::exception& e) {
         std::cerr << "API thread error: " << e.what() << std::endl;
     }
@@ -119,55 +180,54 @@ FishAPI::GETHandler::GETHandler(FishAPI* api) : m_api(api) {
 }
 
 void FishAPI::onPHSample(float pH, float voltage, int16_t adcValue) {
-    // Update pH sensor data
     m_currentPH.store(pH);
     m_currentPHVoltage.store(voltage);
     m_currentPHAdcValue.store(adcValue);
     m_lastPHReadTime = std::time(nullptr);
-    
-    // Optional: Log or print pH data
     std::cout << "pH Sensor Reading - pH: " << pH 
               << ", Voltage: " << voltage 
               << ", ADC Value: " << adcValue << std::endl;
 }
 
 std::string FishAPI::GETHandler::getJSONString() {
-    // Create JSON response
     Json::Value root;
     Json::Value data;
     
-    // System information
     data["motor_initialized"] = (m_api->m_motor != nullptr && m_api->m_motor->isInitialized());
     data["ph_sensor_initialized"] = (m_api->m_phSensor != nullptr && m_api->m_phSensor->isInitialized());
     data["feed_count"] = m_api->m_feedCount.load();
-    data["auto_feed_count"] = m_api->m_autoFeedCount.load();  // Add auto feed counter
-    
-    // Fish detection status
+    data["auto_feed_count"] = m_api->m_autoFeedCount.load();
     data["fish_detected"] = m_api->m_fishDetected.load();
     data["last_image"] = m_api->m_lastImagePath;
-    
-    // Time information
+    data["auto_mode_enabled"] = m_api->m_autoModeEnabled.load();
+
     data["current_time"] = (long)time(NULL);
-    
     if (m_api->m_lastFeedTime > 0) {
         char timeBuffer[100];
         std::strftime(timeBuffer, sizeof(timeBuffer), "%Y-%m-%d %H:%M:%S", 
-                    std::localtime(&m_api->m_lastFeedTime));
+                      std::localtime(&m_api->m_lastFeedTime));
         data["last_feed_time"] = timeBuffer;
     } else {
         data["last_feed_time"] = "Never";
     }
-
-    // pH sensor information
+    
+    if (m_api->m_AutolastFeedTime > 0) {
+        char timeBuffer[100];
+        std::strftime(timeBuffer, sizeof(timeBuffer), "%Y-%m-%d %H:%M:%S", 
+                      std::localtime(&m_api->m_AutolastFeedTime));
+        data["auto_last_feed_time"] = timeBuffer;
+    } else {
+        data["auto_last_feed_time"] = "Never";
+    }
+    
     data["current_ph"] = m_api->m_currentPH.load();
     data["current_ph_voltage"] = m_api->m_currentPHVoltage.load();
     data["current_ph_adc_value"] = m_api->m_currentPHAdcValue.load();
     
-    // pH read time
     if (m_api->m_lastPHReadTime > 0) {
         char phTimeBuffer[100];
         std::strftime(phTimeBuffer, sizeof(phTimeBuffer), "%Y-%m-%d %H:%M:%S", 
-                    std::localtime(&m_api->m_lastPHReadTime));
+                      std::localtime(&m_api->m_lastPHReadTime));
         data["last_ph_read_time"] = phTimeBuffer;
     } else {
         data["last_ph_read_time"] = "Never";
@@ -176,10 +236,8 @@ std::string FishAPI::GETHandler::getJSONString() {
     root["success"] = true;
     root["data"] = data;
     
-    // Convert to string
     Json::StreamWriterBuilder builder;
-    const std::string json_response = Json::writeString(builder, root);
-    return json_response;
+    return Json::writeString(builder, root);
 }
 
 // POST Handler implementation
@@ -189,19 +247,16 @@ FishAPI::POSTHandler::POSTHandler(FishAPI* api) : m_api(api) {
 void FishAPI::POSTHandler::postString(std::string postArg) {
     std::cout << "Received POST data: " << postArg << std::endl;
     
-    // Parse JSON
     Json::Value root;
     Json::CharReaderBuilder builder;
     const std::unique_ptr<Json::CharReader> reader(builder.newCharReader());
     JSONCPP_STRING err;
     
-    if (!reader->parse(postArg.c_str(), postArg.c_str() + postArg.length(), 
-                      &root, &err)) {
+    if (!reader->parse(postArg.c_str(), postArg.c_str() + postArg.length(), &root, &err)) {
         std::cerr << "Error parsing JSON: " << err << std::endl;
         return;
     }
     
-    // Process commands
     if (!root.isMember("command")) {
         std::cerr << "No command specified" << std::endl;
         return;
@@ -210,16 +265,10 @@ void FishAPI::POSTHandler::postString(std::string postArg) {
     std::string command = root["command"].asString();
     
     if (command == "run_motor") {
-        // Extract parameters
-        int dutyCycle = 100; // Default
-        int duration = 1000; // Default
-        int period = 10;     // Default
+        int dutyCycle = root.get("duty_cycle", 100).asInt();
+        int duration = root.get("duration", 1000).asInt();
+        int period = root.get("period", 10).asInt();
         
-        if (root.isMember("duty_cycle")) dutyCycle = root["duty_cycle"].asInt();
-        if (root.isMember("duration")) duration = root["duration"].asInt();
-        if (root.isMember("period")) period = root["period"].asInt();
-        
-        // Apply safety limits
         dutyCycle = std::max(0, std::min(100, dutyCycle));
         duration = std::max(100, std::min(10000, duration));
         period = std::max(5, std::min(20, period));
@@ -235,37 +284,10 @@ void FishAPI::POSTHandler::postString(std::string postArg) {
         }
     }
     else if (command == "feed_fish") {
-        bool override = false;
-        if (root.isMember("override")) override = root["override"].asBool();
-    
-        if (m_api->m_fishDetected || override) {  // If fish detected or override is true
-            std::cout << "Feeding fish..." << std::endl;
-    
-            if (m_api->m_motor && m_api->m_motor->isInitialized()) {
-                m_api->m_motor->run(100, 10, 3000);
-                m_api->m_motor->run(50, 10, 500);
-                m_api->m_motor->stop();
-    
-                m_api->m_lastFeedTime = std::time(nullptr);
-    
-                if (override) {
-                    m_api->m_feedCount++;  // Manual feed counter
-                } else {
-                    //std::cout << "Auto feed triggered. Count before: " << m_api->m_autoFeedCount.load() << std::endl;
-                    m_api->m_autoFeedCount++;
-                    //std::cout << "Auto feed count after: " << m_api->m_autoFeedCount.load() << std::endl;
-                }
-    
-            } else {
-                std::cerr << "Motor not initialized" << std::endl;
-            }
-        } else {
-            std::cout << "Feed command ignored - no fish detected and override not set" << std::endl;
-        }  // <-- This closing brace was missing
+        bool override = root.get("override", false).asBool();
+        m_api->feedFish(override); // Use centralized feeding logic
     }
-    
     else if (command == "read_ph") {
-        // This is the new command to read pH on demand
         std::cout << "On-demand pH reading requested" << std::endl;
         float ph = m_api->requestPHReading();
         if (ph >= 0) {
@@ -276,12 +298,27 @@ void FishAPI::POSTHandler::postString(std::string postArg) {
     }
     else if (command == "init_ph_sensor") {
         std::cout << "Manual pH sensor initialization requested" << std::endl;
-        
         if (m_api->m_phSensor) {
             bool success = m_api->m_phSensor->initialize();
             std::cout << "pH sensor initialization " << (success ? "successful" : "failed") << std::endl;
         } else {
             std::cerr << "pH sensor is NULL" << std::endl;
+        }
+    }
+    else if (command == "set_auto_mode") {
+        if (root.isMember("enabled")) {
+            bool enabled = root["enabled"].asBool();
+            m_api->m_autoModeEnabled = enabled;
+            if (enabled) {
+                m_api->m_pirSensor->start();
+                m_api->m_camera.start();
+            } else {
+                m_api->m_pirSensor->stop();
+                m_api->m_camera.stop();
+            }
+            std::cout << "Auto mode set to: " << (enabled ? "enabled" : "disabled") << std::endl;
+        } else {
+            std::cerr << "Missing 'enabled' parameter for set_auto_mode command" << std::endl;
         }
     }
     else {

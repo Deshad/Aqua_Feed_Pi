@@ -1,8 +1,8 @@
 CMakeFiles/fish_monitor.dir/src/image_processor.cpp.o: \
- /home/team35/Aqua_Feed_Pi/camera_detection/src/image_processor.cpp \
+ /home/team35/Aqua_Feed_Pi/main_codes/src/image_processor.cpp \
  /usr/include/stdc-predef.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/image_processor.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/camera.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/image_processor.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/camera.h \
  /usr/include/c++/12/atomic /usr/include/c++/12/bits/atomic_base.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \

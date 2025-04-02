@@ -1,8 +1,8 @@
 CMakeFiles/fish_monitor.dir/src/main.cpp.o: \
- /home/team35/Aqua_Feed_Pi/camera_detection/src/main.cpp \
+ /home/team35/Aqua_Feed_Pi/main_codes/src/main.cpp \
  /usr/include/stdc-predef.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/fish_monitoring_system.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/camera.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/fish_monitoring_system.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/camera.h \
  /usr/include/c++/12/atomic /usr/include/c++/12/bits/atomic_base.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \
@@ -351,12 +351,12 @@ CMakeFiles/fish_monitor.dir/src/main.cpp.o: \
  /usr/include/opencv4/opencv2/video/background_segm.hpp \
  /usr/include/c++/12/thread /usr/include/c++/12/bits/std_thread.h \
  /usr/include/c++/12/bits/this_thread_sleep.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/feeder.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/image_processor.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/motor.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/feeder.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/image_processor.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/motor.h \
  /usr/include/gpiod.h /usr/lib/gcc/aarch64-linux-gnu/12/include/stdbool.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/pir_sensor.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/fish_api.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/pir_sensor.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/fish_api.h \
  /usr/local/include/json_fastcgi_web_api.h /usr/include/unistd.h \
  /usr/include/aarch64-linux-gnu/bits/posix_opt.h \
  /usr/include/aarch64-linux-gnu/bits/environments.h \
@@ -419,4 +419,4 @@ CMakeFiles/fish_monitor.dir/src/main.cpp.o: \
  /usr/include/asm-generic/sockios.h \
  /usr/include/aarch64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/fcgio.h /usr/include/fcgiapp.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/ph_sensor.h
+ /home/team35/Aqua_Feed_Pi/main_codes/include/ph_sensor.h

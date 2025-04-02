@@ -1,4 +1,4 @@
-# Install script for directory: /home/team35/Aqua_Feed_Pi/camera_detection
+# Install script for directory: /home/team35/Aqua_Feed_Pi/main_codes
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -49,7 +49,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/fish_monitor"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/team35/Aqua_Feed_Pi/camera_detection/build/fish_monitor")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/team35/Aqua_Feed_Pi/main_codes/build/fish_monitor")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/fish_monitor" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/fish_monitor")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -65,7 +65,7 @@ if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/motor_test_program"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/team35/Aqua_Feed_Pi/camera_detection/build/motor_test_program")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" TYPE EXECUTABLE FILES "/home/team35/Aqua_Feed_Pi/main_codes/build/motor_test_program")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/motor_test_program" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/bin/motor_test_program")
     if(CMAKE_INSTALL_DO_STRIP)
@@ -82,5 +82,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/team35/Aqua_Feed_Pi/camera_detection/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/team35/Aqua_Feed_Pi/main_codes/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

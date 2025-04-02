@@ -1,7 +1,7 @@
 CMakeFiles/fish_monitor.dir/src/pir_sensor.cpp.o: \
- /home/team35/Aqua_Feed_Pi/camera_detection/src/pir_sensor.cpp \
+ /home/team35/Aqua_Feed_Pi/main_codes/src/pir_sensor.cpp \
  /usr/include/stdc-predef.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/pir_sensor.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/pir_sensor.h \
  /usr/include/c++/12/atomic /usr/include/c++/12/bits/atomic_base.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \

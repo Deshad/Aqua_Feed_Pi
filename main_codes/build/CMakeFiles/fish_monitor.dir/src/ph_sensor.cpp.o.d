@@ -1,7 +1,7 @@
 CMakeFiles/fish_monitor.dir/src/ph_sensor.cpp.o: \
- /home/team35/Aqua_Feed_Pi/camera_detection/src/ph_sensor.cpp \
+ /home/team35/Aqua_Feed_Pi/main_codes/src/ph_sensor.cpp \
  /usr/include/stdc-predef.h \
- /home/team35/Aqua_Feed_Pi/camera_detection/include/ph_sensor.h \
+ /home/team35/Aqua_Feed_Pi/main_codes/include/ph_sensor.h \
  /usr/include/c++/12/vector /usr/include/c++/12/bits/stl_algobase.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/c++config.h \
  /usr/include/aarch64-linux-gnu/c++/12/bits/os_defines.h \

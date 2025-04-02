@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/team35/Aqua_Feed_Pi/camera_detection
+CMAKE_SOURCE_DIR = /home/team35/Aqua_Feed_Pi/main_codes
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/team35/Aqua_Feed_Pi/camera_detection/build
+CMAKE_BINARY_DIR = /home/team35/Aqua_Feed_Pi/main_codes/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/motor_test_program.dir/depend.make
@@ -70,32 +70,32 @@ include CMakeFiles/motor_test_program.dir/progress.make
 include CMakeFiles/motor_test_program.dir/flags.make
 
 CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o: CMakeFiles/motor_test_program.dir/flags.make
-CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/motor_main.cpp
+CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/motor_main.cpp
 CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o: CMakeFiles/motor_test_program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o -MF CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o.d -o CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/motor_main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o -MF CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o.d -o CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/motor_main.cpp
 
 CMakeFiles/motor_test_program.dir/src/motor_main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/motor_test_program.dir/src/motor_main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/motor_main.cpp > CMakeFiles/motor_test_program.dir/src/motor_main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/motor_main.cpp > CMakeFiles/motor_test_program.dir/src/motor_main.cpp.i
 
 CMakeFiles/motor_test_program.dir/src/motor_main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/motor_test_program.dir/src/motor_main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/motor_main.cpp -o CMakeFiles/motor_test_program.dir/src/motor_main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/motor_main.cpp -o CMakeFiles/motor_test_program.dir/src/motor_main.cpp.s
 
 CMakeFiles/motor_test_program.dir/src/motor.cpp.o: CMakeFiles/motor_test_program.dir/flags.make
-CMakeFiles/motor_test_program.dir/src/motor.cpp.o: /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp
+CMakeFiles/motor_test_program.dir/src/motor.cpp.o: /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp
 CMakeFiles/motor_test_program.dir/src/motor.cpp.o: CMakeFiles/motor_test_program.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/motor_test_program.dir/src/motor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/motor_test_program.dir/src/motor.cpp.o -MF CMakeFiles/motor_test_program.dir/src/motor.cpp.o.d -o CMakeFiles/motor_test_program.dir/src/motor.cpp.o -c /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/motor_test_program.dir/src/motor.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/motor_test_program.dir/src/motor.cpp.o -MF CMakeFiles/motor_test_program.dir/src/motor.cpp.o.d -o CMakeFiles/motor_test_program.dir/src/motor.cpp.o -c /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp
 
 CMakeFiles/motor_test_program.dir/src/motor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/motor_test_program.dir/src/motor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp > CMakeFiles/motor_test_program.dir/src/motor.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp > CMakeFiles/motor_test_program.dir/src/motor.cpp.i
 
 CMakeFiles/motor_test_program.dir/src/motor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/motor_test_program.dir/src/motor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/camera_detection/src/motor.cpp -o CMakeFiles/motor_test_program.dir/src/motor.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/team35/Aqua_Feed_Pi/main_codes/src/motor.cpp -o CMakeFiles/motor_test_program.dir/src/motor.cpp.s
 
 # Object files for target motor_test_program
 motor_test_program_OBJECTS = \
@@ -109,7 +109,7 @@ motor_test_program: CMakeFiles/motor_test_program.dir/src/motor_main.cpp.o
 motor_test_program: CMakeFiles/motor_test_program.dir/src/motor.cpp.o
 motor_test_program: CMakeFiles/motor_test_program.dir/build.make
 motor_test_program: CMakeFiles/motor_test_program.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable motor_test_program"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable motor_test_program"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/motor_test_program.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -121,6 +121,6 @@ CMakeFiles/motor_test_program.dir/clean:
 .PHONY : CMakeFiles/motor_test_program.dir/clean
 
 CMakeFiles/motor_test_program.dir/depend:
-	cd /home/team35/Aqua_Feed_Pi/camera_detection/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team35/Aqua_Feed_Pi/camera_detection /home/team35/Aqua_Feed_Pi/camera_detection /home/team35/Aqua_Feed_Pi/camera_detection/build /home/team35/Aqua_Feed_Pi/camera_detection/build /home/team35/Aqua_Feed_Pi/camera_detection/build/CMakeFiles/motor_test_program.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/team35/Aqua_Feed_Pi/main_codes/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/team35/Aqua_Feed_Pi/main_codes /home/team35/Aqua_Feed_Pi/main_codes /home/team35/Aqua_Feed_Pi/main_codes/build /home/team35/Aqua_Feed_Pi/main_codes/build /home/team35/Aqua_Feed_Pi/main_codes/build/CMakeFiles/motor_test_program.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/motor_test_program.dir/depend
 

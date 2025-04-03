@@ -1,0 +1,1 @@
+JBL live 650 BTNC  hinge fix  by jackantubis on Thingiverse: https://www.thingiverse.com/thing:5336160

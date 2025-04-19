@@ -8,7 +8,7 @@
 #include <chrono>
 #include <thread>
 
-// ADS1115 settings - using your updated constants
+// ADS1115 settings
 static const char *I2C_DEVICE = "/dev/i2c-1";
 static const uint8_t I2C_ADDR = 0x48;
 #define CONFIG_REG 0x01
@@ -16,11 +16,10 @@ static const uint8_t I2C_ADDR = 0x48;
 
 // Updated calibration constants
 static const float V_REF = 2.048; // PGA ±2.048V
-static const float SLOPE = -12.5; // Updated slope
-static const float OFFSET = 12.5; // Updated offset
+static const float SLOPE = -12.5; //  slope
+static const float OFFSET = 12.5; //  offset
 
 PHSensor::PHSensor() : m_fd(-1) {
-    // Simple constructor with no parameters
 }
 
 PHSensor::~PHSensor() {
@@ -38,7 +37,6 @@ bool PHSensor::initialize() {
         m_fd = -1;
     }
     
-    // Using the same code as your updated example
     m_fd = open(I2C_DEVICE, O_RDWR);
     if (m_fd < 0) {
         std::cerr << "Failed to open I2C device" << std::endl;
@@ -65,7 +63,7 @@ void PHSensor::cleanup() {
 }
 
 float PHSensor::readPH() {
-    // Make sure the sensor is initialized
+    // Making sure the sensor is initialized
     if (!isInitialized()) {
         std::cout << "Sensor not initialized, initializing now..." << std::endl;
         if (!initialize()) {
@@ -74,7 +72,7 @@ float PHSensor::readPH() {
         }
     }
     
-    // Read raw ADC value - using updated code from your example
+    // Read raw ADC value 
     int16_t adcValue = readADC();
     if (adcValue < 0) {
         std::cerr << "Failed to read ADC" << std::endl;
@@ -90,7 +88,7 @@ float PHSensor::readPH() {
     // Notify callbacks
     notifyCallbacks(pH, voltage, adcValue);
     
-    // Print the same output as your updated code
+    // Print the same output 
     std::cout << "Raw ADC: " << adcValue << " | Voltage: " << voltage
               << "V | pH: " << pH << std::endl;
     
@@ -98,7 +96,6 @@ float PHSensor::readPH() {
 }
 
 int16_t PHSensor::readADC() {
-    // Using your updated implementation
     uint16_t config = (1 << 15) | // Start conversion
                       (0 << 12) | // A0 single-ended (MUX = 000)
                       (2 << 9)  | // ±2.048V gain (PGA = 010)
@@ -120,7 +117,7 @@ int16_t PHSensor::readADC() {
     
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
     
-    // Read back config - added from your updated code
+    // Read back config 
     uint8_t reg = CONFIG_REG;
     if (write(m_fd, &reg, 1) != 1) {
         std::cerr << "Failed to set config register for read" << std::endl;
@@ -159,7 +156,6 @@ float PHSensor::adcToVoltage(int16_t adcValue) {
 }
 
 float PHSensor::voltageToPH(float voltage) {
-    // Using your updated calculation
     return SLOPE * voltage + OFFSET;
 }
 

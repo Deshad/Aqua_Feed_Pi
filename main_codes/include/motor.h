@@ -9,20 +9,16 @@
 class Motor {
 public:
     /**
-     * Constructor
      * @param motorPin The GPIO pin number connected to the motor controller
-     * @param chipPath Path to the GPIO chip (default: /dev/gpiochip0 for Raspberry Pi)
+     * @param  Path to the GPIO chip 
      */
     Motor(int motorPin = 4, const char* chipPath = "/dev/gpiochip0");
     
-    /**
-     * Destructor - ensures motor is stopped and resources are released
-     */
     ~Motor();
     
     /**
      * Run the motor at specified duty cycle
-     * @param dutyCycle Percentage (0-100) of time the signal is high
+     * @param dutyCycle Percentage (0-100) 
      * @param periodMs PWM period in milliseconds
      * @param durationMs How long to run in milliseconds
      * @return true if successful, false if GPIO not initialized
@@ -35,8 +31,8 @@ public:
     void stop();
     
     /**
-     * Check if motor GPIO is properly initialized
-     * @return true if initialized, false otherwise
+     * Check if motor GPIO is properly init
+     * @return true if init, false otherwise
      */
     bool isInitialized() const { return m_gpioInitialized; }
 
@@ -47,4 +43,4 @@ private:
     bool m_gpioInitialized;
 };
 
-#endif // MOTOR_H
+#endif 

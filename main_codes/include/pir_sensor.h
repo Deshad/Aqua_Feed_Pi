@@ -44,4 +44,4 @@ private:
     struct gpiod_line* m_line;
 };
 
-#endif // PIR_SENSOR_H
+#endif 

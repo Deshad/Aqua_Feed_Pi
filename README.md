@@ -33,7 +33,7 @@ Designed with Raspberry Pi, this project helps automate fish feeding efficiently
   - Next.js (for web-based monitoring, if enabled)  
 
 ---
-![Aqua Matic Flow Chart](images/flowChart.png) 
+![Aqua Matic Flow Chart](images/Aqua_Diag.png) 
 
 ## **🛠 Installation & Setup**  
 

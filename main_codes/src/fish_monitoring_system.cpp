@@ -1,11 +1,9 @@
-// fish_monitoring_system.cpp
 #include "fish_monitoring_system.h"
 #include <filesystem>
 #include <iostream>
 
 namespace fs = std::filesystem;
 
-// Define a dedicated callback class for updating the API
 class FishAPICallback : public ImageProcessor::FishDetectionCallbackInterface {
 private:
     FishAPI* m_api;
@@ -53,13 +51,13 @@ FishMonitoringSystem::FishMonitoringSystem() {
     std::cout << "Initializing API..." << std::endl;
     m_api = std::make_unique<FishAPI>(m_feeder->getMotor(), m_phSensor.get(), m_pirSensor.get()); // Add PirSensor*
     
-    // Set up callback chain
+    // Setting up callback chain
     std::cout << "Setting up event callback chain..." << std::endl;
     m_pirSensor->registerCallback(this);
     m_camera->registerCallback(m_imageProcessor.get());
     m_imageProcessor->registerCallback(m_feeder.get());
     
-    // Also set up a callback to update the API when fish is detected
+    // Also setting up a callback to update the API when fish is detected
     m_imageProcessor->registerCallback(new FishAPICallback(m_api.get()));
     
     // Register pH sensor callback to API
@@ -75,7 +73,7 @@ void FishMonitoringSystem::start() {
     std::cout << "Starting Fish Monitoring System..." << std::endl;
     // m_camera->start();
     // m_pirSensor->start();
-    // m_phSensor->start();  // Uncomment if PHSensor has a start() method
+    // m_phSensor->start();  
     m_api->start();  // Start the API
     std::cout << "System started and ready." << std::endl;
 }

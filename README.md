@@ -24,7 +24,8 @@ Designed with Raspberry Pi, this project helps automate fish feeding efficiently
   - Camera Module  
   - DC Motor (for feeding mechanism)  
   - Power Supply  
-  - Wi-Fi Module (optional, for remote access)  
+  - Wi-Fi Module (optional, for remote access)
+    ![3D Model](Project%20Details/Schematic_Diagram.png)
 
 - **Software:**  
   - Cpp (for system control)  

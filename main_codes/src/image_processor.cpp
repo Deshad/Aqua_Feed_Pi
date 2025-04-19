@@ -69,36 +69,33 @@ void ImageProcessor::imageReady(const cv::Mat& image) {
 // }
 
 bool ImageProcessor::detectFish(cv::Mat& image) {
-    // Keep a copy of the original image for color analysis
+    // Keep a copy of the original 
     cv::Mat originalImage = image.clone();
     
-    // Convert to HSV color space for better color detection
     cv::Mat hsvImage;
     cv::cvtColor(originalImage, hsvImage, cv::COLOR_BGR2HSV);
     
-    // Create a mask for red color
-    // Red color wraps around in HSV, so we need two ranges
+    // mask for red color
+    // Red color wraps around in HSV
     cv::Mat redMask1, redMask2, redMask;
     // Lower red range (0-10)
     cv::inRange(hsvImage, cv::Scalar(0, 100, 100), cv::Scalar(10, 255, 255), redMask1);
     // Upper red range (160-180)
     cv::inRange(hsvImage, cv::Scalar(160, 100, 100), cv::Scalar(180, 255, 255), redMask2);
-    // Combine masks
+    // Combining masks
     cv::addWeighted(redMask1, 1.0, redMask2, 1.0, 0.0, redMask);
     
-    // Apply the red mask to the original image
+    // Applying the red mask to the original image
     cv::Mat redFiltered;
     cv::bitwise_and(originalImage, originalImage, redFiltered, redMask);
     
-    // Convert to grayscale for shape analysis
+    // Converting to grayscale for shape analysis
     cv::Mat gray;
     cv::cvtColor(redFiltered, gray, cv::COLOR_BGR2GRAY);
     
-    // Use adaptive thresholding to handle lighting variations
     cv::Mat binary;
     cv::threshold(gray, binary, 1, 255, cv::THRESH_BINARY);
     
-    // Apply morphological operations to clean up the binary image
     cv::Mat morphElement = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(5, 5));
     cv::morphologyEx(binary, binary, cv::MORPH_CLOSE, morphElement);
     
@@ -115,7 +112,7 @@ bool ImageProcessor::detectFish(cv::Mat& image) {
         double area = cv::contourArea(contour);
         
         // Filter by minimum area to remove noise
-        if (area > 100) {  // Lowered threshold to detect smaller fish
+        if (area > 100) {  
             cv::Rect boundRect = cv::boundingRect(contour);
             double aspectRatio = (double)boundRect.width / boundRect.height;
             
@@ -131,10 +128,7 @@ bool ImageProcessor::detectFish(cv::Mat& image) {
                       << ", Circularity: " << circularity 
                       << ", Red pixel ratio: " << redPixelRatio << std::endl;
             
-            // Adjusted parameters for toy fish detection:
-            // - More flexible aspect ratio to account for different orientations
-            // - Higher red pixel threshold to ensure it's actually red
-            // - More lenient circularity as toy fish may have distinct shapes
+           
             if (aspectRatio > 1.0 && aspectRatio < 5.0 && 
                 circularity < 0.9 && 
                 redPixelRatio > 0.3) {
@@ -150,19 +144,17 @@ bool ImageProcessor::detectFish(cv::Mat& image) {
                 cv::putText(image, label, cv::Point(boundRect.x, boundRect.y - 5),
                             cv::FONT_HERSHEY_SIMPLEX, 0.5, cv::Scalar(0, 255, 0), 2);
                 
-                // For small test, one fish is enough
                 if (fishCount >= 1) return true;
             }
         }
     }
     
-    // Create debug visualization images
     if (contours.size() > 0 && fishCount == 0) {
-        // Save debug images to check what's happening when no fish is detected
+        // Saving debug images to check what's happening when no fish is detected
         cv::imwrite("../archive/debug_red_mask.jpg", redMask);
         cv::imwrite("../archive/debug_red_filtered.jpg", redFiltered);
         cv::imwrite("../archive/debug_binary.jpg", binary);
     }
     
-    return fishCount >= 1;  // Changed to 1 for toy fish detection
+    return fishCount >= 1;  // Changed to 1 
 }

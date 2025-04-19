@@ -18,7 +18,7 @@ public:
     
     ImageProcessor();
     
-    // Register callback for fish detection results
+    // Register callback for fish detection 
     void registerCallback(FishDetectionCallbackInterface* callback);
     
     // Implementation of Camera callback
@@ -31,5 +31,5 @@ private:
     std::vector<FishDetectionCallbackInterface*> m_callbacks;
 };
 
-#endif // IMAGE_PROCESSOR_H
+#endif 
 

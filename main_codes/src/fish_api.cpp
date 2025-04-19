@@ -7,8 +7,8 @@
 FishAPI::FishAPI(Motor* motor, PHSensor* phSensor, PirSensor* pirSensor)
     : m_motor(motor),
       m_phSensor(phSensor),
-      m_pirSensor(pirSensor), // Use provided PirSensor
-      m_camera(), // Initialize Camera (adjust constructor as needed)
+      m_pirSensor(pirSensor), 
+      m_camera(), // Initialize Camera 
       m_imageProcessor(),
       m_running(false),
       m_getHandler(this),
@@ -48,7 +48,7 @@ void FishAPI::start() {
         m_running = true;
         m_thread = std::thread(&FishAPI::threadFunction, this);
         if (m_autoModeEnabled) {
-            m_pirSensor->start(); // Use pointer
+            m_pirSensor->start(); 
             m_camera.start();
         }
         std::cout << "API thread started" << std::endl;
@@ -59,7 +59,7 @@ void FishAPI::start() {
 void FishAPI::stop() {
     if (m_running) {
         m_running = false;
-        m_pirSensor->stop(); // Use pointer
+        m_pirSensor->stop(); 
         m_camera.stop();
         if (m_thread.joinable()) {
             m_handler.stop();
@@ -78,12 +78,12 @@ void FishAPI::setFishDetected(bool detected) {
     }
 }
 
-// Update last image path
+// Update last img path
 void FishAPI::setLastImagePath(const std::string& path) {
     m_lastImagePath = path;
 }
 
-// Centralized feeding logic
+//  feeding logic
 void FishAPI::feedFish(bool override) {
     if ((m_autoModeEnabled && m_fishDetected) || override) {
         std::cout << "Feeding fish..." << std::endl;
@@ -123,7 +123,7 @@ void FishAPI::fishDetected(const cv::Mat& image) {
     if (m_autoModeEnabled) {
         setFishDetected(true);
         setLastImagePath("last_detected_image.jpg");
-        cv::imwrite("last_detected_image.jpg", image); // Save image for reference
+        cv::imwrite("last_detected_image.jpg", image); 
     }
 }
 
@@ -161,14 +161,12 @@ float FishAPI::requestPHReading() {
     return ph;
 }
 
-// Thread function
 void FishAPI::threadFunction() {
     try {
         m_handler.start(&m_getHandler, &m_postHandler, "/tmp/fish_api.socket");
         while (m_running) {
             std::this_thread::sleep_for(std::chrono::seconds(1));
         }
-        // Ensure the handler stops when m_running is false
         m_handler.stop();
     } catch (const std::exception& e) {
         std::cerr << "API thread error: " << e.what() << std::endl;
@@ -285,7 +283,7 @@ void FishAPI::POSTHandler::postString(std::string postArg) {
     }
     else if (command == "feed_fish") {
         bool override = root.get("override", false).asBool();
-        m_api->feedFish(override); // Use centralized feeding logic
+        m_api->feedFish(override); 
     }
     else if (command == "read_ph") {
         std::cout << "On-demand pH reading requested" << std::endl;

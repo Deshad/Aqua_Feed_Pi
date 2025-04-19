@@ -9,9 +9,7 @@
 #include <thread>
 #include <vector>
 
-/**
- * Camera class that captures images when triggered using libcamera-still
- */
+
 class Camera {
 public:
     // Interface for image callbacks
@@ -24,16 +22,16 @@ public:
            int height = 480);
     ~Camera();
     
-    // Start camera thread
+    // Start cam thread
     void start();
     
-    // Stop camera thread
+    // Stop cam thread
     void stop();
     
-    // Request an image capture
+    // Request an img capture
     void captureImage();
     
-    // Register callback for image capture
+    // Register callback for img capture
     void registerCallback(ImageCallbackInterface* callback);
     
 private:
@@ -51,4 +49,4 @@ private:
     std::vector<ImageCallbackInterface*> m_callbacks;
 };
 
-#endif // CAMERA_H
+#endif 

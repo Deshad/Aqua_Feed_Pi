@@ -55,14 +55,10 @@ void Camera::worker() {
             m_captureRequested = false;
         }
         
-        // Capture image using libcamera-still with optimized settings
+        // Capture image using libcamera-still 
         std::cout << "Capturing image..." << std::endl;
         
-        // Build command with specific optimizations:
-        // 1. Lower resolution (-w and -h options)
-        // 2. Minimal preview time (--immediate option)
-        // 3. Faster processing (--nopreview option)
-        // 4. Reduced image quality for speed (--quality option)
+       
         std::stringstream command;
         command << "libcamera-still "
                 << "--immediate " // Capture immediately without settling time

@@ -15,7 +15,7 @@ class FishAPI : public PHSensor::PHSensorCallbackInterface,
                public PirSensor::MotionCallbackInterface,
                public ImageProcessor::FishDetectionCallbackInterface {
 public:
-    FishAPI(Motor* motor, PHSensor* phSensor, PirSensor* pirSensor); // Updated constructor
+    FishAPI(Motor* motor, PHSensor* phSensor, PirSensor* pirSensor); 
     ~FishAPI();
 
     void start();
@@ -26,7 +26,7 @@ public:
     void feedFish(bool override);
 
     void onPHSample(float pH, float voltage, int16_t adcValue) override;
-    void motionDetected(gpiod_line_event event) override; // Pass-by-value per PirSensor
+    void motionDetected(gpiod_line_event event) override; // Pass-by-value  PirSensor
     void fishDetected(const cv::Mat& image) override;
     void noFishDetected(const cv::Mat& image) override;
 
@@ -74,4 +74,4 @@ private:
     std::time_t m_lastPHReadTime;
 };
 
-#endif // FISH_API_H
+#endif 

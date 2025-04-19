@@ -24,9 +24,9 @@ public:
     // Stop the system
     void stop();
     
-    // Motion detected callback (implements MotionCallbackInterface)
+    // Motion detected callback ( MotionCallbackInterface)
     void motionDetected(gpiod_line_event e) override;
-    // pH sample callback (implements PHSensorCallbackInterface)
+    // pH sample callback ( PHSensorCallbackInterface)
     void onPHSample(float pH, float voltage, int16_t adcValue) override;
     
 private:
@@ -41,4 +41,4 @@ private:
 
 };
 
-#endif // FISH_MONITORING_SYSTEM_H
+#endif 

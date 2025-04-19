@@ -89,9 +89,9 @@ Modify `config.json` to adjust:
 For web-based monitoring, run:  
 
 ```bash
-----(add command here)
+----npm run dev
 ```
-Then, access the dashboard via your browser at `http://[link]/`.  
+Then, access the dashboard via your browser at `http://localhost:8000`.  
 
 ---
 

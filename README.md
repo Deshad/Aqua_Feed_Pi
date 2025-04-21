@@ -128,6 +128,7 @@ Then, access the dashboard via your browser at `http://localhost:8000`.
 | Camera not detected | Run `vcgencmd get_camera` and check if `detected=1`. |
 | PIR sensor not triggering | Check GPIO connections and ensure the correct pin mapping. |
 | Motor not working | Ensure it’s connected properly and receiving the correct PWM signal. |
+| PH Sensor incorrect measurement | Ensure the calibration of the PH level is correctly. |
 
 ---
 

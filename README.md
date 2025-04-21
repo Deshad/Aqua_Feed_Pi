@@ -10,7 +10,10 @@ Designed with Raspberry Pi, this project helps automate fish feeding efficiently
 ## **🚀 Features**  
 ✅ **Automated Feeding:** Dispenses food when fish are detected.  
 ✅ **PIR & Camera-based Detection:** Monitors fish activity for intelligent feeding.  
-✅ **Remote Access:** Control and monitor the system via SSH or a web dashboard.  
+✅ **Remote Access:** Control and monitor the system via SSH or a web dashboard.
+
+✅ **pH Monitoring:** Monitor pH value of the tank. 
+
 ✅ **Configurable Parameters:** Adjust feeding schedules and sensor sensitivity.  
 ✅ **Energy Efficient:** Optimized to reduce unnecessary food waste.  
 
@@ -21,7 +24,8 @@ Designed with Raspberry Pi, this project helps automate fish feeding efficiently
 - **Hardware:**  
   - Raspberry Pi  
   - PIR Motion Sensor  
-  - Camera Module  
+  - Camera Module
+  - pH Sensor    
   - DC Motor (for feeding mechanism)  
   - Power Supply  
   - Wi-Fi Module (optional, for remote access)
@@ -31,7 +35,7 @@ Designed with Raspberry Pi, this project helps automate fish feeding efficiently
   - Cpp (for system control)  
   - OpenCV (for fish detection via camera)  
   - RPi.GPIO (for PIR and  motor control)  
-  - Next.js (for web-based monitoring, if enabled)  
+  - Next.js (for web-based monitoring)  
 
 ---
 ![Aqua Matic Flow Chart](images/Aqua_Diag.png) 
@@ -69,7 +73,7 @@ Ensure you have connected the PIR sensor properly to the Raspberry Pi's GPIO pin
 
 ## **🚀 Running the System**  
 
-Execute the main script:  
+Execute the main script:  (file present in main_codes)
 
 ```bash
 ./ fish_monitor
@@ -87,7 +91,7 @@ Modify `config.json` to adjust:
 
 ---
 
-For web-based monitoring, run:  
+For web-based monitoring, run:  (file present in web folder)
 
 ```bash
 npm run dev

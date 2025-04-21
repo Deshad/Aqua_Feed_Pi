@@ -51,12 +51,18 @@ cd Aqua_Feed_Pi
 ```
 
 ### **2️⃣ Install Dependencies**  
-Run the following command to install required Python libraries:  
+Install the following packages (on Debian-based systems):
 
 ```bash
-pip install -r requirements.txt
+sudo apt update
+sudo apt install \
+  libopencv-dev (>=4.5.0) \
+  libjsoncpp-dev (>=1.9.4) \
+  libgpiod-dev (>=1.6.0) \
+  libi2c-dev \
+  libcamera-dev \
+  libcamera-tools
 ```
-
 ### **3️⃣ Setup Raspberry Pi Configuration**  
 
 #### **Enable Camera**  

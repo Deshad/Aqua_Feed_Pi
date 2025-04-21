@@ -85,6 +85,7 @@ Ensure you have connected the ADC module (ADS1115) properly to the Raspberry Pi'
 sudo raspi-config
 ```
 - Navigate to *Interfacing Options* → *I2C* → *Yes* → *Finish & Reboot*.
+
 (Install I2C Tools)
 ```bash
 sudo apt install -y i2c-tools python3-smbus

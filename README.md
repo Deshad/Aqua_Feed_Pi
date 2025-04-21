@@ -76,6 +76,18 @@ sudo raspi-config
 #### **Enable PIR Sensor GPIO**  
 Ensure you have connected the PIR sensor properly to the Raspberry Pi's GPIO pins.  
 
+#### **Enable Motor GPIO**  
+Ensure you have connected the transistor and motor properly to the Raspberry Pi's GPIO pins.  
+
+#### **Enable I2C GPIO**  
+Ensure you have connected the ADC module (ADS1115) properly to the Raspberry Pi's GPIO pins 2 (SDA) & 3 (SCL).  
+```bash
+sudo raspi-config
+```
+- Navigate to *Interfacing Options* → *I2C* → *Yes* → *Finish & Reboot*.  
+```bash (Install I2C Tools)
+sudo apt install -y i2c-tools python3-smbus
+```
 ---
 
 ## **🚀 Running the System**  

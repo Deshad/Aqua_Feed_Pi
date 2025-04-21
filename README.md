@@ -72,7 +72,7 @@ Ensure you have connected the PIR sensor properly to the Raspberry Pi's GPIO pin
 Execute the main script:  
 
 ```bash
-./ feed_fish
+./ fish_monitor
 ```
 ![Aqua Matic Flow Chart](images/fish_detection.jpg) 
 
@@ -90,7 +90,7 @@ Modify `config.json` to adjust:
 For web-based monitoring, run:  
 
 ```bash
-----npm run dev
+npm run dev
 ```
 Then, access the dashboard via your browser at `http://localhost:8000`.  
 

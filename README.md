@@ -31,7 +31,8 @@ Designed with Raspberry Pi, this project helps automate fish feeding efficiently
   - Wi-Fi Module (optional, for remote access)
     ![3D Model](Project%20Details/Schematic_Diagram.png)
 
-- **Software:**  
+- **Software:**
+  - OS (for Raspberry Pi system)
   - Cpp (for system control)  
   - OpenCV (for fish detection via camera)  
   - RPi.GPIO (for PIR and  motor control)  

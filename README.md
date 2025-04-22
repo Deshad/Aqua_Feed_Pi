@@ -1,6 +1,6 @@
 # Aqua Matic  
 # **Smart Aquarium Management System** 🐠
-![3D Model](images/Video.mp4) 
+![3D Model](images/Front_Left.jpg) 
 
 ## **📌 Project Overview**  
 **Aqua Matic** is a smart, automated aquarium management system that uses a **PIR sensor and Pi-camera** to detect fish presence and regulate feeding schedules. 

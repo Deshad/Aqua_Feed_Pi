@@ -55,8 +55,6 @@ mkdir build
 cmake ..
 make
 
-cd ~/Aqua_Feed_Pi/build
-./fish_monitor
 ```
 Removing the build folder and make it again.
 
@@ -106,7 +104,8 @@ sudo apt install -y i2c-tools python3-smbus
 Execute the main script:  (file present in main_codes)
 
 ```bash
-./ fish_monitor
+cd ~/Aqua_Feed_Pi/build
+./fish_monitor
 ```
 ![Aqua Matic Flow Chart](images/fish_detection.jpg) 
 

@@ -49,7 +49,15 @@ Make sure you have **Git** installed, then run:
 ```bash
 git clone https://github.com/Deshad/Aqua_Feed_Pi.git
 cd Aqua_Feed_Pi
+
+rm -rf build
+mkdir build
+cmake ..
+make
+
+./fish_monitor
 ```
+Removing the build folder and make it again.
 
 ### **2️⃣ Install Dependencies**  
 Install the following packages (on Debian-based systems):

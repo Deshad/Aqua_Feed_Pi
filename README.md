@@ -55,6 +55,7 @@ mkdir build
 cmake ..
 make
 
+cd ~/Aqua_Feed_Pi/build
 ./fish_monitor
 ```
 Removing the build folder and make it again.
